@@ -3,6 +3,7 @@ import data from '../data/dataset.js'
 const home = () => {
 
     const container = document.createElement('section')
+    console.log("🚀 ~ file: home.js:6 ~ home ~ container:", container)
 
     const link = document.createElement('link');
     link.rel = 'stylesheet';

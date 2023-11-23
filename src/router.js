@@ -7,6 +7,7 @@ const routes = {
 };
 
 function render(template) {
+  console.log("🚀 ~ file: router.js:10 ~ render ~ render:", render)
   const rootElement = document.getElementById("root");
   rootElement.innerHTML = "";
   rootElement.appendChild(template);
