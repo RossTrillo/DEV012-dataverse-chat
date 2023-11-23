@@ -1,22 +1,53 @@
+// En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 
-import { onURLChange, setRootElement, setRoutes } from './router.js';
-import {Chat, ChatGrupal, Home} from './views/Example.js';
+import { render, searchRoute, updateURLstate } from "./router.js";
 
-const routes = {
-    "/": Home,
-    "/error" : 'some',
-    "/chat": Chat,
-    "/chatgrupal" : ChatGrupal,
+
+function loadRoute(route) {
+  const template = searchRoute(route) 
+  render(template);
+  updateURLstate(route)
 }
 
-const viewContainer = document.getElementById('root');
 
-setRoutes(routes);
-setRootElement(viewContainer);
+const links = document.querySelectorAll("a.redirection");
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    onURLChange(event.target.location.pathname);
+links.forEach((link)=> {
+
+    link.addEventListener("click", (event) => {
+      
+      event.preventDefault();
+      const linkRoute = event.target.href.replace(window.location.origin, "")
+          loadRoute(linkRoute);
+          
+          
+          
+      });
+
 })
+  
+
+window.addEventListener("popstate", (event) => {
+    // Check if the event state is null, indicating a full page reload
+    if (event.state === null) {
+      // Manually typed URL, handle route change
+      const currentPath = window.location.pathname;
+      loadRoute(currentPath);
+    } else {
+      // Back or forward button clicked, handle as usual
+      const currentPath = window.location.pathname;
+      loadRoute(currentPath);
+    }
+  });
+
+  window.addEventListener("load", () => {
+    const currentPath = window.location.pathname;
+    loadRoute(currentPath);
+  });
+
+
+
+ 
 /*
 TODO:
 1.- Definir rutas en router.
