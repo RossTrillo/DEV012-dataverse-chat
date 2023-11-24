@@ -1,10 +1,9 @@
 import data from '../data/dataset.js'
+import {computeStats} from '../lib/dataFunctions.js'
 
-const home = () => {
+const home = () =>  {
 
     const container = document.createElement('section')
-    console.log("🚀 ~ file: home.js:6 ~ home ~ container:", container)
-
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'styles.css';
@@ -55,9 +54,19 @@ const home = () => {
       </main>
     `;
 
+    const ulStadistics = `<ul>
+    <li> Disney Channel: ${computeStats(data)["Disney Channel"]} </li>
+    <li> Cartoon Network: ${computeStats(data)["Cartoon Network"]} </li>
+    <li> Discovery Kids: ${computeStats(data)["Discovery Kids"]} </li>
+    <li> Nickelodeon: ${computeStats(data)["Nickelodeon"]} </li>
+    <ul/>
+    `
+
+
     const sidebarHtml = document.createElement("section") 
     sidebarHtml.innerHTML = `<section id="sideBar" class="active">
         ${filtersHtml}
+        ${ulStadistics}
       </section>
     `;
     
@@ -82,24 +91,9 @@ const home = () => {
           <dt>Canal de televisión: </dt><dd itemprop="channel"> ${element.channel}</dd>
           <dt>Transmision: </dt><dd itemprop="status">${element.status}</dd>
           <dt>Audiencia: </dt><dd itemprop="targetAudience">${element.targetAudience}</dd>
-          
-          </section>
-  
-          <section class="back">
-          <dt><b>Género: </b></dt><dd itemprop="genre">${element.genre}</dd>
-          <dt><b>Descripción corta:</b></dt><dd itemprop="shortDescription">${element.shortDescription}</dd>
-          <dt><b>Descripción:</b></dt><dd itemprop="description"> ${element.description}</dd>
-          <dt><b>Hechos importantes:</b> </dt>
-          <dd itemprop="fechaDeCreacionDelPrograma">Fecha de Creacion: ${element.facts.fechaDeCreacionDelPrograma}</dd>
-          <dd itemprop="capituloConMayorRating">Capitulo con mayor rating: ${element.facts.capituloConMayorRating}</dd>
-          <dd itemprop="datoCurioso">Dato curioso: ${element.facts.datoCurioso}</dd>
-  
-          </section>
         </dl>
-  
         </section>
       </li>
-      
     `;
   
       //Cada li inyectarlo en la ul
@@ -111,8 +105,6 @@ const home = () => {
    
 
     return container
-   
-    
-};
+  };
 
 export default home;
