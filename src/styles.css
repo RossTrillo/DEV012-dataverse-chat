@@ -509,11 +509,11 @@ select {
     }
     
     .card:hover .front {
-        transform: perspective(500px) rotateY(180deg);
+        transform: perspective(500px) rotateY(-15deg);
     }
     
     .card:hover .back {
-        transform: perspective(500px) rotateY(360deg);
+        transform: perspective(500px) rotateY(180deg);
     }
     
     footer {
