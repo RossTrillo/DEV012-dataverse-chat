@@ -23,7 +23,7 @@ export const filterData = (data, filterBy, value) => {
     return sortedData;
   };
   
-  export const computeStats = (data) => {
+ export const computeStats = (data) => {
     const arrayOfChannels = data.map((item) => item.channel);
   
     // ["tnt", "spn", "espn", "fox", "fox"]
@@ -51,4 +51,6 @@ export const filterData = (data, filterBy, value) => {
   
     return numbersOfChannels;
   };
+
+  
   

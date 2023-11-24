@@ -1,14 +1,17 @@
 import data from '../data/dataset.js'
+import { computeStats } from '../lib/dataFunctions.js'
 
 const home = () => {
-
-    const container = document.createElement('section')
-    console.log("🚀 ~ file: home.js:6 ~ home ~ container:", container)
 
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'styles.css';
     document.head.appendChild(link);
+
+    const container = document.createElement('section')
+    console.log("🚀 ~ file: home.js:6 ~ home ~ container:", container)
+
+    
 
     const filtersHtml = `
       <main>
@@ -55,9 +58,21 @@ const home = () => {
       </main>
     `;
 
+    
+    const ulStatistics = 
+   `<ul>
+    <li> Disney Channel: ${computeStats(data)["Disney Channel"]} </li>
+    <li> Cartoon Network: ${computeStats(data)["Cartoon Network"]} </li>
+    <li> Discovery Kids: ${computeStats(data)["Discovery Kids"]} </li>
+    <li> Nickelodeon: ${computeStats(data)["Nickelodeon"]} </li>
+    </ul>
+    `;
+    
+
     const sidebarHtml = document.createElement("section") 
     sidebarHtml.innerHTML = `<section id="sideBar" class="active">
         ${filtersHtml}
+        ${ulStatistics}
       </section>
     `;
     
@@ -105,6 +120,8 @@ const home = () => {
       //Cada li inyectarlo en la ul
       ul.innerHTML += li;
     }
+
+    
 
    container.appendChild(sidebarHtml);
    container.insertAdjacentElement('beforeend', ul)
