@@ -1,4 +1,5 @@
 export const filterData = (data, filterBy, value) => {
+    console.log("🚀 ~ file: dataFunctions.js:2 ~ filterData ~ value:", value)
     return data.filter((element) => element[filterBy] === value);
   };
   
@@ -24,6 +25,7 @@ export const filterData = (data, filterBy, value) => {
   };
   
  export const computeStats = (data) => {
+  
     const arrayOfChannels = data.map((item) => item.channel);
   
     // ["tnt", "spn", "espn", "fox", "fox"]
