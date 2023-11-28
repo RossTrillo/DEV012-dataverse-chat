@@ -3,9 +3,6 @@ import { computeStats } from '../../lib/dataFunctions.js'
 import { createCards } from './createCards.js';
 
 const home = () => {
-   
-    
-
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = './viewsComponents/homeView/stylesHome.css';

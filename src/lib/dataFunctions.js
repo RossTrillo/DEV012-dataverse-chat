@@ -27,7 +27,6 @@ export const filterData = (data, filterBy, value) => {
  export const computeStats = (data) => {
   
     const arrayOfChannels = data.map((item) => item.channel);
-  
     // ["tnt", "spn", "espn", "fox", "fox"]
     const numbersOfChannels = arrayOfChannels.reduce((accum, channel) => {
       if (accum[channel]) {
@@ -36,7 +35,6 @@ export const filterData = (data, filterBy, value) => {
       } else {
         accum[channel] = 1;
       }
-  
       return accum;
     }, {});
     // {}
