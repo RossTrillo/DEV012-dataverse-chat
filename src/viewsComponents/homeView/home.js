@@ -1,13 +1,22 @@
-import data from '../data/dataset.js'
-import {computeStats} from '../lib/dataFunctions.js'
+import data from '../../data/dataset.js'
+import { computeStats } from '../../lib/dataFunctions.js'
+import { createCards } from './createCards.js';
 
-const home = () =>  {
-
-    const container = document.createElement('section')
+const home = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'styles.css';
+    link.href = './viewsComponents/homeView/stylesHome.css';
     document.head.appendChild(link);
+
+    const container = document.createElement('section')
+    container.setAttribute("id", "home")
+
+    const buttonToggle = document.createElement("section");
+    buttonToggle.innerHTML = ` 
+    <section class="toggle-btn">
+    <span>&#9776;</span>
+  </section>`;
+    
 
     const filtersHtml = `
       <main>
@@ -54,57 +63,48 @@ const home = () =>  {
       </main>
     `;
 
-    const ulStadistics = `<ul>
+    
+    const ulStatistics = 
+   `<ul>
     <li> Disney Channel: ${computeStats(data)["Disney Channel"]} </li>
     <li> Cartoon Network: ${computeStats(data)["Cartoon Network"]} </li>
     <li> Discovery Kids: ${computeStats(data)["Discovery Kids"]} </li>
     <li> Nickelodeon: ${computeStats(data)["Nickelodeon"]} </li>
-    <ul/>
-    `
-
+    </ul>
+    `;
+    
 
     const sidebarHtml = document.createElement("section") 
     sidebarHtml.innerHTML = `<section id="sideBar" class="active">
         ${filtersHtml}
-        ${ulStadistics}
+        ${ulStatistics}
       </section>
     `;
     
-    const ul = document.createElement("ul");
-    ul.setAttribute("class","ulClass")
-    data.forEach(createLi);
-  
-    function createLi(element) {
-      // const li = document.createElement("li");
-      // //Inyectar cada li con los datos de cada elemento
-      const li = `
-      
-      <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person">
-      <section class="card">
-  
-      <section class="front">
-        <dl class="user-name">
-          <figure>
-            <img src="${element.imageUrl}" class="img"/>
-          </figure>
-          <dt></dt><dd itemprop="name">${element.name}</dd>
-          <dt>Canal de televisión: </dt><dd itemprop="channel"> ${element.channel}</dd>
-          <dt>Transmision: </dt><dd itemprop="status">${element.status}</dd>
-          <dt>Audiencia: </dt><dd itemprop="targetAudience">${element.targetAudience}</dd>
-        </dl>
-        </section>
-      </li>
-    `;
-  
-      //Cada li inyectarlo en la ul
-      ul.innerHTML += li;
-    }
+    const cards = createCards(data);
 
+    const containerCards = document.createElement("section");
+    containerCards.setAttribute("id", "containerCards");
+    containerCards.appendChild(cards)
+  
+    
+
+
+   container.appendChild(buttonToggle);
    container.appendChild(sidebarHtml);
-   container.insertAdjacentElement('beforeend', ul)
+   container.insertAdjacentElement('beforeend', containerCards)
+
+   const script = document.createElement("script");
+    script.src = "./viewsComponents/homeView/mainHome.js"
+    script.type = "module"
+    document.body.appendChild(script)
    
 
     return container
-  };
+
+    
+};
+
+
 
 export default home;

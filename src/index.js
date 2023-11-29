@@ -4,10 +4,14 @@ import { computeStats, filterData, sortData } from "./lib/dataFunctions.js";
 import data from "./data/dataset.js";
 
 
+
+
 function loadRoute(route) {
-  const template = searchRoute(route) 
+
+  const template = searchRoute(route);
   render(template);
-  updateURLstate(route)
+  updateURLstate(route);
+  
 }
 
 
