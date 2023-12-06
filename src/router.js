@@ -1,9 +1,13 @@
 import home from "./viewsComponents/homeView/home.js";
 import errorView from "./viewsComponents/errorView/errorView.js";
+import { apiView } from "./viewsComponents/apiView/apiView.js";
+
 
 const routes = {
   "/": home,
   "/404": errorView,
+  "/api": apiView, 
+  
 };
 
 function render(template) {

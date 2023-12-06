@@ -1,6 +1,5 @@
 import { filterData, sortData } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
-import home from "./home.js";
 import { createCards } from "./createCards.js";
 // Eventos del DOM para el home View
 
