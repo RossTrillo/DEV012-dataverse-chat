@@ -1,5 +1,6 @@
 import data from '../../data/dataset.js'
 import { computeStats } from '../../lib/dataFunctions.js'
+//import { header } from '../../staticsComponents/header.js';
 import { createCards } from './createCards.js';
 
 const home = () => {
@@ -86,10 +87,8 @@ const home = () => {
     const containerCards = document.createElement("section");
     containerCards.setAttribute("id", "containerCards");
     containerCards.appendChild(cards)
-  
-    
 
-
+    //container.appendChild(containerHeader);
    container.appendChild(buttonToggle);
    container.appendChild(sidebarHtml);
    container.insertAdjacentElement('beforeend', containerCards)
@@ -99,10 +98,8 @@ const home = () => {
     script.type = "module"
     document.body.appendChild(script)
    
-
     return container
 
-    
 };
 
 

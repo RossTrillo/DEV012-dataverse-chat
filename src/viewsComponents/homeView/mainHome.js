@@ -10,18 +10,13 @@ const renderInView = (element, id) => {
   rootElement.appendChild(element);
 };
 
-
-
 addEventListeners();
-
 function addEventListeners() {
   console.log("Event listeners are active.");
   //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
   const channel = document.querySelector("select[name='channel']");
-  const targetAudience = document.querySelector(
-    "select[name='targetAudience']"
-  );
+  const targetAudience = document.querySelector("select[name='targetAudience']");
   const status = document.querySelector("select[name='status']");
 
   channel.addEventListener("change", applyFilters);
@@ -74,7 +69,6 @@ function addEventListeners() {
   });
 
   const btnToggle = document.querySelector(".toggle-btn");
-
   btnToggle.addEventListener("click", function () {
     // {}
     document.getElementById("sideBar").classList.toggle("active");
