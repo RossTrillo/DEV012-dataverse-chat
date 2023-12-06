@@ -11,6 +11,7 @@ export const createCards = (data) => {
       const li = `
       
       <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person">
+      <a href="/api" >
       <section class="card">
   
       <section class="front">
@@ -25,7 +26,7 @@ export const createCards = (data) => {
           
           </section>
   
-          <section class="back">
+          <!--<section class="back">
           <dt><b>Género: </b></dt><dd itemprop="genre">${element.genre}</dd>
           <dt><b>Descripción corta:</b></dt><dd itemprop="shortDescription">${element.shortDescription}</dd>
           <dt><b>Descripción:</b></dt><dd itemprop="description"> ${element.description}</dd>
@@ -34,10 +35,11 @@ export const createCards = (data) => {
           <dd itemprop="capituloConMayorRating">Capitulo con mayor rating: ${element.facts.capituloConMayorRating}</dd>
           <dd itemprop="datoCurioso">Dato curioso: ${element.facts.datoCurioso}</dd>
   
-          </section>
+          </section>-->
         </dl>
   
         </section>
+        </a>
       </li>
       
     `;
