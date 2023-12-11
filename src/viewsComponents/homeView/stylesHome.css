@@ -1,3 +1,24 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 14%;
+    padding: 10px;
+    background-image: url(fun.png);
+    background-size: 43%;
+    background-repeat: no-repeat;
+    align-items: center;
+    background-position-x: 40%;
+    border-bottom: 3px solid black;
+    background-color: white;
+    margin-left: -2%;
+    position: fixed;
+}
+
+#containerCards {
+    margin-top: 4%;
+}
 .ulClass {
     display: flex;
     width: 100%;
@@ -43,7 +64,7 @@ select {
         text-align: justify;
         position: fixed;
     }
-    h1 {
+    /*h1 {
         background-color: #d3bcf6;
         text-align: center;
         position: fixed;
@@ -60,7 +81,7 @@ select {
         background-repeat:no-repeat;
         padding: 0.5% 0;
 
-    }
+    } */
     
      .ulClass{
         margin-left: 0%;
@@ -227,7 +248,7 @@ select {
         text-align: justify;
         position: fixed;
     }
-    h1 {
+    /*h1 {
         background-color: #d3bcf6;
         text-align: center;
         position: fixed;
@@ -244,7 +265,7 @@ select {
         background-repeat:no-repeat;
         padding: 0.5% 0;
 
-    }
+    } */
     
      .ulClass {
         display: flex;
@@ -412,7 +433,7 @@ select {
         text-align: justify;
         position: fixed;
     }
-    h1 {
+    /* h1 {
         background-color: #d3bcf6;
         text-align: center;
         position: fixed;
@@ -428,7 +449,7 @@ select {
         background-position:center;
         background-repeat:no-repeat;
         padding: 0.5% 0;
-    }
+    } */
     
      .ulClass {
         display: flex;

@@ -1,13 +1,15 @@
 import home from "./viewsComponents/homeView/home.js";
-import errorView from "./viewsComponents/errorView/errorView.js";
-import { apiView } from "./viewsComponents/apiView/apiView.js";
-
+import { errorView } from "./viewsComponents/errorView/errorView.js";
+import {apiView} from "./viewsComponents/apiView/apiView.js";
+import { groupChatView } from "./viewsComponents/groupChat/groupChat.js";
+import { singleChatView } from "./viewsComponents/singleChat/chatView.js";
 
 const routes = {
   "/": home,
   "/404": errorView,
-  "/api": apiView, 
-  
+  "/api": apiView,
+  "/group": groupChatView,
+  "/chat" : singleChatView
 };
 
 function render(template) {
