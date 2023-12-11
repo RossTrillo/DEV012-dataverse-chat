@@ -11,7 +11,7 @@
 
 export default errorView;
 */ 
-
+import { footer } from "../../staticsComponents/footer.js";
 export const errorView = () => {
 
   const link = document.createElement('link');
@@ -24,19 +24,21 @@ export const errorView = () => {
   
 
   //Creamos elementos
-  const errorH1 = document.querySelector("h1")
-  errorH1.innerHTML = `
+  const apiHeader = document.createElement("header")
+  apiHeader.setAttribute("class", "header")
+  apiHeader.innerHTML = `
   <img id="cartoon">
-  <a href="http://localhost:3000/">
-  <img id="home">
+  <a href="/">
+  <i class="fa-solid fa-house"></i>
   </a>
   `
+
   const errorRoot = document.getElementById('root')
   errorRoot.innerHTML = `<img id="triste"><br>
   <section>404<br>Page not found</section>`
 
-
-  errorPageView.insertBefore(errorH1);
-  errorPageView.appendChild(errorRoot);
-
+  document.body.appendChild(footer);
+  errorPageView.appendChild(apiHeader);
+  errorPageView.insertBefore(errorRoot);
+  return errorPageView;
 }

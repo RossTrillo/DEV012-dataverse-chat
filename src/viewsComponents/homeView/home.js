@@ -9,6 +9,15 @@ const home = () => {
     link.href = './viewsComponents/homeView/stylesHome.css';
     document.head.appendChild(link);
 
+    const homeHeader = document.createElement("header")
+    homeHeader.setAttribute("class", "header")
+    homeHeader.innerHTML = `
+    <img id="cartoon">
+    <a href="/">
+    <i class="fa-solid fa-house"></i>
+    </a>
+    `
+
     const container = document.createElement('section')
     container.setAttribute("id", "home")
 
@@ -88,10 +97,11 @@ const home = () => {
     containerCards.setAttribute("id", "containerCards");
     containerCards.appendChild(cards)
 
-    //container.appendChild(containerHeader);
+  //container.appendChild(containerHeader);
+  container.appendChild(homeHeader);
    container.appendChild(buttonToggle);
    container.appendChild(sidebarHtml);
-   container.insertAdjacentElement('beforeend', containerCards)
+   container.insertAdjacentElement('beforeend', containerCards);
 
    const script = document.createElement("script");
     script.src = "./viewsComponents/homeView/mainHome.js"

@@ -1,12 +1,34 @@
-
-h1 {
+.all {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+/*h1 {
     background-color: white;
     width: 100%;
     height: 10%;
     position: fixed;
     z-index: 100;
-} 
-#cartoon {
+
+}  */
+
+i {
+    text-align: center;
+    width: 15%;
+    height: 15%;
+    position: fixed;
+    margin-top: 0.5%;
+    z-index: 100;
+    left: 80%;
+    top: 0;
+    background-image: url(263115.png);
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:none ;
+    text-decoration: none;
+    outline: none;
+}
+
+/* #cartoon {
     text-align: center;
     width: 70%;
     height: 13%;
@@ -15,11 +37,26 @@ h1 {
     z-index: 100;
     left: 8%;
     top: 0;
-    background-image: url(image\ \(1\)\ png.png);
+    background-image: url(fun.png);
     background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
     border:none;
+} */
+ 
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 13%;
+    padding: 10px;
+    background-image: url(fun.png);
+    background-size: 43%;
+    background-repeat: no-repeat;
+    align-items: center;
+    background-position-x: 40%;
+    border-bottom: 3px solid black;
 }
 
 #home {
@@ -39,7 +76,6 @@ h1 {
 }
 
 #root {
-   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     margin-top: 5%;
     width: 100%;
     height: 87%;
@@ -63,4 +99,12 @@ section {
         font-size: xx-large;
         font-family: 'circular';
         text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin-left: 48%;
 }

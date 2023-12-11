@@ -1,30 +1,31 @@
+import data from '../../data/dataset.js'
 import { footer } from "../../staticsComponents/footer.js";
-export const groupChatView = () => {
-
+export const singleChatView = () => {
+    
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './viewsComponents/groupChat/stylesGroup.css';
+    link.href = './viewsComponents/singleChat/stylesChatView.css';
     
     document.head.appendChild(link);
 
     const container = document.createElement('div')
-    container.setAttribute("id", "groupView")
+    container.setAttribute("id", "chatView")
 
-    const groupHeader = document.createElement("header")
-    groupHeader.setAttribute("class", "header")
-    groupHeader.innerHTML = `
+    const singleHeader = document.createElement("header")
+    singleHeader.setAttribute("class", "header")
+    singleHeader.innerHTML = `
     <img id="cartoon">
     <a href="/">
     <i class="fa-solid fa-house"></i>
     </a>
     `
 
-    const groupRoot = document.createElement('main')
-    groupRoot.setAttribute("id", "apiRoot")
-    groupRoot.setAttribute("class", "main")
-    groupRoot.innerHTML = `
+    const singleRoot = document.createElement('main')
+    singleRoot.setAttribute("id", "apiRoot")
+    singleRoot.setAttribute("class", "main")
+    singleRoot.innerHTML = `
+
     <section id ="chat">
-    "Chat grupal"
     </section>
     <section id ="questions">
     <label for="text" id="phrase"> Un momento, están pensando...</label>
@@ -36,8 +37,8 @@ export const groupChatView = () => {
     <br>
     </section>
     `
-    container.appendChild(groupHeader);
-    container.appendChild(groupRoot);
+    container.appendChild(singleHeader);
+    container.appendChild(singleRoot);
     document.body.appendChild(container);
     document.body.appendChild(footer);
     return container
