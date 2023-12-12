@@ -10,6 +10,7 @@ const renderInView = (element, id) => {
 };
 
 addEventListeners();
+
 function addEventListeners() {
   console.log("Event listeners are active.");
   //Variable que almacena los filtros seleccionados y crean un objeto a la vez.

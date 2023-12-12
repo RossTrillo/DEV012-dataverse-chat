@@ -41,5 +41,11 @@ export const singleChatView = () => {
     container.appendChild(singleRoot);
     document.body.appendChild(container);
     document.body.appendChild(footer);
+
+    const script = document.createElement("script");
+    script.src = "./viewsComponents/singleChat/mainSingleChat.js"
+    script.type = "module"
+    document.body.appendChild(script)
+    
     return container
 }

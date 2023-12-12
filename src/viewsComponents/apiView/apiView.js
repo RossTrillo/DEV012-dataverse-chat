@@ -60,7 +60,7 @@ export const apiView = () => {
     apiRoot.setAttribute("class", "main")
     apiRoot.innerHTML = `
     <input id ="password" type="password" >
-    <a href="/">
+    <a href="/chat">
     <button type="submit" id="button">Enviar</button>
     </a>
     <br>
