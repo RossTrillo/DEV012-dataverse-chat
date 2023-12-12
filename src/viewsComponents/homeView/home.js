@@ -2,6 +2,8 @@ import data from '../../data/dataset.js'
 import { computeStats } from '../../lib/dataFunctions.js'
 //import { header } from '../../staticsComponents/header.js';
 import { createCards } from './createCards.js';
+import { footer } from "../../staticsComponents/footer.js";
+
 
 const home = () => {
     const link = document.createElement('link');
@@ -102,6 +104,7 @@ const home = () => {
    container.appendChild(buttonToggle);
    container.appendChild(sidebarHtml);
    container.insertAdjacentElement('beforeend', containerCards);
+   container.appendChild(footer);
 
    const script = document.createElement("script");
     script.src = "./viewsComponents/homeView/mainHome.js"

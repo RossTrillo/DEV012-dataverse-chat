@@ -1,4 +1,4 @@
-import data from '../../data/dataset.js'
+
 import { footer } from "../../staticsComponents/footer.js";
 export const singleChatView = () => {
     
@@ -20,32 +20,44 @@ export const singleChatView = () => {
     </a>
     `
 
-    const singleRoot = document.createElement('main')
-    singleRoot.setAttribute("id", "apiRoot")
-    singleRoot.setAttribute("class", "main")
-    singleRoot.innerHTML = `
+    const singleChatSection = document.createElement('section')
+    singleChatSection.setAttribute("id", "singleSection")
+    singleChatSection.innerHTML = `
+    <aside class="cardInfo">
+    "Información de cada programa"
+    </aside>
+    <main class ="singleChat">
+    </main>
+    `
 
-    <section id ="chat">
-    </section>
-    <section id ="questions">
+
+
+
+    const inputText = document.createElement('section')
+    inputText.setAttribute("id", "inputText")
+    inputText.innerHTML = ` <section id="questions">
     <label for="text" id="phrase"> Un momento, están pensando...</label>
     <br>
-    <input id ="text" type="text" >
-    <a href="/">
-    <button type="submit" id="button">Enviar</button>
-    </a>
-    <br>
+    <input id ="text" type="text"  placeholder="Escribe tu pregunta...">
     </section>
+    <button type="submit" id="button">Enviar</button>
     `
+
+
     container.appendChild(singleHeader);
-    container.appendChild(singleRoot);
+    container.appendChild(singleChatSection);
+    container.appendChild(inputText);
     document.body.appendChild(container);
     document.body.appendChild(footer);
 
+
+
     const script = document.createElement("script");
-    script.src = "./viewsComponents/singleChat/mainSingleChat.js"
-    script.type = "module"
-    document.body.appendChild(script)
-    
-    return container
-}
+    script.src= "./viewsComponents/singleChat/mainSingleChat.js"
+    script.type ="module"
+    document.body.appendChild(script); 
+
+    return container;
+
+
+};
