@@ -3,7 +3,6 @@
     top: 0;
     left: 0;
     width: 120%;
-    height: 14%;
     padding: 10px;
     background-image: url(fun.png);
     background-size: 43%;
@@ -37,13 +36,6 @@ header {
     z-index: 100;
 }
 
-footer {
-    position: absolute;
-    
-    right: 0;
-    bottom: 0;
-    margin: 10px 0 10px;
-}
 
 select {
     color: black;
@@ -51,6 +43,13 @@ select {
     width: 95%;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin-left: 48%;
+}
 
 /* Mediaquery Mobile */
 @media ( max-width: 480px) {
@@ -63,6 +62,7 @@ select {
     header {
         text-align: justify;
         position: fixed;
+        height: 3%;
     }
     /*h1 {
         background-color: #d3bcf6;
@@ -169,13 +169,6 @@ select {
         transform: perspective(500px) rotateY(360deg);
     }
     
-    footer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        margin: 10px 0 10px;
-       
-    }
     
     .card .front dl {
         display: block;
@@ -247,6 +240,7 @@ select {
     header {
         text-align: justify;
         position: fixed;
+        height: 7%;
     }
     /*h1 {
         background-color: #d3bcf6;
@@ -354,13 +348,7 @@ select {
         transform: perspective(500px) rotateY(360deg);
     }
     
-    footer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        margin: 10px 0 10px;
-    }
-    
+
     .card .front dl {
         display: block;
         margin: inherit;
@@ -432,6 +420,7 @@ select {
     header {
         text-align: justify;
         position: fixed;
+        height: 14%;
     }
     /* h1 {
         background-color: #d3bcf6;
@@ -537,15 +526,7 @@ select {
         transform: perspective(500px) rotateY(180deg);
     }
     
-    footer {
-        position: absolute;
-        width: 15%;
-        right: 0;
-        bottom: 0;
-        margin: 10px 0 10px;
-        
-    }
-    
+
     .card .front dl {
         display: block;
         margin: inherit;
