@@ -11,7 +11,7 @@ export const createCards = (data) => {
       const li = `
       
       <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person">
-      <a href="/api" >
+      <a href="/api"class="card-link">
       <section class="card">
   
       <section class="front">
