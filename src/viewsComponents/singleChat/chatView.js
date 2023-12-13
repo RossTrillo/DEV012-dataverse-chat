@@ -30,9 +30,6 @@ export const singleChatView = () => {
     </main>
     `
 
-
-
-
     const inputText = document.createElement('section')
     inputText.setAttribute("id", "inputText")
     inputText.innerHTML = ` <section id="questions">
