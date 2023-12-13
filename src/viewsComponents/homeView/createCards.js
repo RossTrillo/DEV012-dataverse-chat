@@ -11,7 +11,7 @@ export const createCards = (data) => {
       const li = `
       
       <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person">
-      <a href="/api" >
+      
       <section class="card">
   
       <section class="front">
@@ -39,7 +39,7 @@ export const createCards = (data) => {
         </dl>
   
         </section>
-        </a>
+        
       </li>
       
     `;

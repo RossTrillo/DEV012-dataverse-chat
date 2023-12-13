@@ -1,6 +1,7 @@
 import { filterData, sortData } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
 import { createCards } from "./createCards.js";
+
 // Eventos del DOM para el home View
 
 const renderInView = (element, id) => {
@@ -8,6 +9,8 @@ const renderInView = (element, id) => {
   rootElement.innerHTML = "";
   rootElement.appendChild(element);
 };
+
+
 
 addEventListeners();
 
@@ -23,9 +26,6 @@ function addEventListeners() {
   targetAudience.addEventListener("change", applyFilters);
   status.addEventListener("change", applyFilters);
 
-  console.log("Channel Element:", channel);
-  console.log("Target Audience Element:", targetAudience);
-  console.log("Status Element:", status);
 
   const originalData = [...data];
   let filteredData = [...data];
@@ -96,4 +96,24 @@ function addEventListeners() {
     const resetedData = createCards(data);
     renderInView(resetedData, "containerCards");
   }
-}
+  
+
+};
+
+const cards = createCards(data);
+console.log("Cards selected:", cards);
+
+cards.querySelectorAll(".liClass").forEach((card) => {
+  card.addEventListener('click', () =>{
+    
+    const cartoonId = card.dataset.id;
+
+    const cartoonSelected = data.find((element) => element.id === cartoonId);
+
+    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
+
+    window.location.href = '/chat';
+
+  })
+  
+});
