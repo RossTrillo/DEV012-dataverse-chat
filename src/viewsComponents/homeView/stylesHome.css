@@ -1,18 +1,20 @@
+body {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
 .header {
-    position: absolute;
+    height: 80px;
     top: 0;
+    position: absolute;
     left: 0;
-    width: 120%;
+    width: 100%;
     padding: 10px;
     background-image: url(fun.png);
-    background-size: 43%;
+    background-size: 45%;
     background-repeat: no-repeat;
     align-items: center;
-    background-position-x: 40%;
-    border-bottom: 3px solid black;
-    background-color: white;
-    margin-left: -2%;
-    position: fixed;
+    background-position-x: 50%;
 }
 
 #containerCards {
@@ -416,6 +418,7 @@ select {
         min-height: 100%;
         position: relative;
         display: flex;
+        
     }
     header {
         text-align: justify;
@@ -491,7 +494,7 @@ select {
     .card .front {
         width: 85%;
         height: 100%;
-        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+        background: rgba(254	209	229);
         transform: perspective(500px) rotateY(0deg);
         border: black solid;
         border-radius: 30px;
@@ -536,15 +539,19 @@ select {
     } 
     
     #sideBar {
+        margin-top: -100px;
         position: fixed;
         width: 13%;
         height: 100%;
         background-color: #6a9eda;
-        color:#ffffff;
+        
         left: 0px;
-        margin-top: 3.5em;
         align-items: center;
         text-align: center;
+        background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #d0d0d0;
     }
     select {
         color: black;

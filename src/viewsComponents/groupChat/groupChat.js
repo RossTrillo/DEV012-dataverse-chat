@@ -22,9 +22,6 @@ export const groupChatView = () => {
     const groupChatSection = document.createElement('section')
     groupChatSection.setAttribute("id", "singleSection")
     groupChatSection.innerHTML = `
-    <aside class="cardInfo">
-    "Información de cada programa"
-    </aside>
     <main class ="singleChat">
     </main>
     `

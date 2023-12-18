@@ -11,7 +11,7 @@ export const createCards = (data) => {
       const li = `
       
       <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person">
-      
+      <a href="#" class="card-link">
       <section class="card">
   
       <section class="front">
@@ -51,3 +51,25 @@ export const createCards = (data) => {
     //Renderizar el ul, esto debe estar en el main.js
     return ul;
   };
+
+  export function createCard (infoCard){
+
+    const li = document.createElement('li');
+    li.innerHTML=`
+    <li class="liClass" data-id="${infoCard.id}" itemscope itemtype="https://schema.org/Person">
+      <section class="card">
+  
+      <section class="front">
+        <dl class="user-name">
+          <figure>
+            <img src="${infoCard.imageUrl}" class="img"/>
+          </figure>
+          <dt></dt><dd itemprop="name"><b>${infoCard.name}</b></dd>
+          <dd itemprop="shortDescription">${infoCard.description}</dd>
+          
+          </section>
+    `
+
+    return li
+
+}
