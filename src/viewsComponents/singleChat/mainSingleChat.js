@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { createCard } from "../homeView/createCards.js";
 import { renderInView } from "../../lib/dataFunctions.js";
 
@@ -16,7 +14,6 @@ renderInView(createdCard,"cardInfo");
 
 
 
->>>>>>> 1fb2c147a42ab1c66969efe3ffc5ba0eadec69b8
 const interactionWithIa = document.getElementById("button");
 interactionWithIa.addEventListener("click", sendMessage); //
 //Evento KeyPress
@@ -26,23 +23,6 @@ interactionWithIa.addEventListener("click", sendMessage); //
     }
 });
     function sendMessage() {
-<<<<<<< HEAD
-        const messageInput = document.getElementById("text"); //
-        const  message = messageInput.value;
-        addMessage("Usuari@:", message);
-        getAnswerIA("Personaje:", message);
-        messageInput.value = "";
-    }
-
-   function addMessage(sender, message) {
-        const mainContainer = document.querySelector(".singleChat");
-        const newMessage = document.createElement("section");
-        newMessage.setAttribute("class", "messageUser")
-        newMessage.innerHTML = `<p><b>Usuari@</b></p> ${message}`;
-        mainContainer.appendChild(newMessage);
-    } 
-
-=======
         const mainContainer = document.querySelector(".singleChat");
         const messageInput = document.getElementById("text");
         const  message = messageInput.value;
@@ -63,16 +43,10 @@ interactionWithIa.addEventListener("click", sendMessage); //
         newMessage.innerHTML = `<p><b>Usuari@:</b></p> ${message}`;
         mainContainer.appendChild(newMessage);
     }
->>>>>>> 1fb2c147a42ab1c66969efe3ffc5ba0eadec69b8
     function getAnswerIA(sender, message) {
         const mainContainer = document.querySelector(".singleChat");
         const messageIA = document.createElement("section");
         messageIA.setAttribute("class", "messageIa")
-<<<<<<< HEAD
-        messageIA.innerHTML =`<p><b>${sender}</b></p> ${message}` ;
-        mainContainer.appendChild(messageIA);
-    }; 
-=======
         messageIA.innerHTML =`<p><b>${sender}</b></p> ${message}`;
         mainContainer.appendChild(messageIA);
     };
@@ -80,4 +54,3 @@ interactionWithIa.addEventListener("click", sendMessage); //
    
 
     
->>>>>>> 1fb2c147a42ab1c66969efe3ffc5ba0eadec69b8
