@@ -29,7 +29,6 @@ export const singleChatView = () => {
     
     </aside>
     <main class ="singleChat">
-    
     </main>
     `
 

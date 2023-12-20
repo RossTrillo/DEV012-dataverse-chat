@@ -6,6 +6,29 @@ import { renderInView } from "../../lib/dataFunctions.js";
 // Eventos del DOM para el home View
 
 addEventListeners();
+document.querySelector("#containerCards").addEventListener('click', (e) =>{
+
+  const card = e.target.closest(".liClass");
+  if(card){
+    e.preventDefault()
+    e.stopPropagation()
+    
+    const cartoonId = card.getAttribute('data-id')
+    console.log("🚀 ~ file: mainHome.js:103 ~ card.addEventListener ~ cartoonId:", cartoonId)
+
+    const cartoonSelected = data.find((element) => element.id === cartoonId);
+    console.log("🚀 ~ file: mainHome.js:112 ~ card.addEventListener ~ cartoonSelected:", cartoonSelected)
+
+    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
+
+    window.location.href = '/api';
+  }
+
+  });
+
+
+
+
 
 function addEventListeners() {
   console.log("Event listeners are active.");
@@ -49,6 +72,8 @@ function addEventListeners() {
     // Display the filtered data in the HTML.
      const filteredCards = createCards(filteredData)
     renderInView(filteredCards, "containerCards");
+
+
   }
 
   const sort = document.querySelector("select[data-testid='select-sort']");
@@ -93,26 +118,5 @@ function addEventListeners() {
   
 
 };
-
-document.querySelector("#containerCards").addEventListener('click', (e) =>{
-
-  const card = e.target.closest(".liClass");
-  if(card){
-    e.preventDefault()
-    e.stopPropagation()
-    
-    const cartoonId = card.getAttribute('data-id')
-    console.log("🚀 ~ file: mainHome.js:103 ~ card.addEventListener ~ cartoonId:", cartoonId)
-
-    const cartoonSelected = data.find((element) => element.id === cartoonId);
-    console.log("🚀 ~ file: mainHome.js:112 ~ card.addEventListener ~ cartoonSelected:", cartoonSelected)
-
-    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
-
-    window.location.href = '/api';
-  }
-
-  });
-
 
 
