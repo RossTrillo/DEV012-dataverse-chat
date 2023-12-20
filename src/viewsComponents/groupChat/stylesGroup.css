@@ -16,23 +16,15 @@ body {
     background-position-x: 40%;
     border-bottom: 3px solid black;
 }
-
 i {
-    text-align: center;
-    width: 15%;
-    height: 15%;
-    position: fixed;
-    margin-top: 0.5%;
-    z-index: 100;
-    left: 80%;
+    width: 90px;
+    height: 90px;
+    background-size: cover;
+    position: absolute;
+    left: 89%;
+    margin: 0;
     top: 0;
     background-image: url(263115.png);
-    background-size: 40%;
-    background-position: center;
-    background-repeat: no-repeat;
-    border:none ;
-    text-decoration: none;
-    outline: none;
 }
 .main{
     position: fixed;
@@ -41,35 +33,38 @@ i {
     top: 7%;
 }
 #singleSection{
-    display: flex; /* */
-    margin-top: 8%;
+    display: flex; 
+    margin-top: 13%;
     margin-left: 10%;
-    width: 80%;  /* */
-    font-family: cursive;
-    height: 380px;
+    margin-bottom: 3%;
+    width: 80%;  
+    height: 430px;
 }
-
-
 /*.p {
     border-radius: 10%;
     background-color: white;
     border: solid black 1px;
 } */
 .singleChat {
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 40px;
+    padding: 25px;
+    flex-direction: column;
+    display: flex;
     overflow: scroll;
-    width: 100%;
+    width: 90%;
+    margin: 0 60px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
-
 #sender {
     color: red;
-    
 }
-
 #inputText {
     display: flex;
 }
-
 #questions {
     width: 60%;
     text-align: justify;
@@ -80,20 +75,29 @@ i {
     font-size: large;
     width: 20%;
 }
-
 .messageIa {
-        border-radius: 10%;
-        background-color: #e3e4cb;
-        border: solid black 1px;
-        margin: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px 25px 25px 0;
+    background-color: #E3E4CB;
+    border: solid black 1px;
+    margin: 5px;
+    padding: 10px;
+    word-wrap: break-word;
+    align-self: start;
+}
+.messageUser {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px 25px 0 25px;
+    background-color: white;
+    border: solid black 1px;
+    margin: 5px;
+    padding: 10px;
+    align-self: end;
+    text-align: end;
 }
 
-.messageUser {
-        border-radius: 10%;
-        background-color: white;
-        border: solid black 1px;
-        margin: 5px;
-}
+
+
 
 p {
     margin:2px;

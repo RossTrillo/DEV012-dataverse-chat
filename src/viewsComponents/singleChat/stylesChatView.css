@@ -18,22 +18,16 @@ body {
 }
 
 i {
-    text-align: center;
-    width: 15%;
-    height: 15%;
-    position: fixed;
-    margin-top: 0.5%;
-    z-index: 100;
-    left: 80%;
+    width: 90px;
+    height: 90px;
+    background-size: cover;
+    position: absolute;
+    left: 89%;
+    margin: 0;
     top: 0;
     background-image: url(263115.png);
-    background-size: 40%;
-    background-position: center;
-    background-repeat: no-repeat;
-    border:none ;
-    text-decoration: none;
-    outline: none;
 }
+
 .main{
     position: fixed;
     left: 10px;
@@ -41,33 +35,100 @@ i {
     top: 7%;
 }
 #singleSection{
-    display: flex; /* */
-    margin-top: 8%;
+    display: flex; 
+    margin-top: 13%;
     margin-left: 10%;
-    width: 80%;  /* */
-    font-family: cursive;
-    height: 380px;
+    margin-bottom: 3%;
+    width: 80%;  
+    height: 430px;
 }
 
-.cardInfo {
-    width: 20%;
+li{
+    list-style-type: none;
 }
-.messageIa {
-    border-radius: 10%;
-    background-color: #e3e4cb;
-    border: solid black 1px;
-    margin: 5px;
+.img {
+    
+    width: 100%;
+    height: 14em;
+    border: black solid;
+    border-radius: 20% 0;
 }
 
-.messageUser {
+.front dd {
+    margin-inline-start: auto;
+}
+
+
+
+.card {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 19em;
+    height: 27em;
+    text-align: center;
+}
+
+.card section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.card .front {
+    width: 85%;
+    height: 100%;
+    background:  rgba(254	209	229) ;
+    transform: perspective(500px) rotateY(0deg);
+    border: black solid;
+    border-radius: 30px;
+    padding: 15px;
+    font-size: medium;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+
+
+.card:hover .front {
+    transform: perspective(500px) rotateY(-15deg);
+}
+
+
+
+
+.card .front dl {
+    display: block;
+    margin: inherit;
+    width: 100%;
+    height: 100%;
+   
+} 
+
+.p {
     border-radius: 10%;
     background-color: white;
     border: solid black 1px;
     margin: 5px;
 }
 .singleChat {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    display: flex;
     overflow: scroll;
-    width: 80%;
+    width: 61%;
+    margin: 0 65px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    padding: 12px;
+    scroll-behavior: smooth;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 p {
@@ -76,24 +137,28 @@ p {
 
 #inputText {
     display: flex;
+    
 }
 
 #questions {
-    width: 60%;
+    width: 34%;
     text-align: justify;
-    margin-left: 10%;
+    margin-left: 38%;
 }
 #button {
     justify-content: right;
     font-size: large;
-    width: 20%;
+    width: 8%;
+    margin: 15px 0 0 58px;
 }
 
 #text {
     text-align: left;
     border-radius: 30px;
-    width: 80%;
+    width: 100%;
+    height: 25px;
     font-size: large;
+    margin: 10px 0;
 }
 .footer {
     position: fixed;
@@ -101,4 +166,29 @@ p {
     left: 0px;
     right: 0px;
     margin-left: 48%;
+}
+
+.messageIa {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px 25px 25px 0;
+    background-color: #E3E4CB;
+    border: solid black 1px;
+    margin: 5px;
+    padding: 10px;
+    word-wrap: break-word;
+    align-self: start;
+}
+.messageUser {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px 25px 0 25px;
+    background-color: white;
+    border: solid black 1px;
+    margin: 5px;
+    padding: 10px;
+    align-self: end;
+    text-align: end;
+}
+
+p {
+    margin:2px;
 }

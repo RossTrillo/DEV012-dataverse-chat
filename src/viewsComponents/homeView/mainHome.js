@@ -1,18 +1,38 @@
 import { filterData, sortData } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
-import home from "./home.js";
 import { createCards } from "./createCards.js";
+import { renderInView } from "../../lib/dataFunctions.js";
+
 // Eventos del DOM para el home View
 
-const renderInView = (element, id) => {
-  const rootElement = document.getElementById(id);
-  rootElement.innerHTML = "";
-  rootElement.appendChild(element);
-};
-
 addEventListeners();
+document.querySelector("#containerCards").addEventListener('click', (e) =>{
+
+  const card = e.target.closest(".liClass");
+  if(card){
+    e.preventDefault()
+    e.stopPropagation()
+    
+    const cartoonId = card.getAttribute('data-id')
+    console.log("🚀 ~ file: mainHome.js:103 ~ card.addEventListener ~ cartoonId:", cartoonId)
+
+    const cartoonSelected = data.find((element) => element.id === cartoonId);
+    console.log("🚀 ~ file: mainHome.js:112 ~ card.addEventListener ~ cartoonSelected:", cartoonSelected)
+
+    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
+
+    window.location.href = '/api';
+  }
+
+  });
+
+
+
+
+
 function addEventListeners() {
   console.log("Event listeners are active.");
+
   //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
   const channel = document.querySelector("select[name='channel']");
@@ -23,9 +43,6 @@ function addEventListeners() {
   targetAudience.addEventListener("change", applyFilters);
   status.addEventListener("change", applyFilters);
 
-  console.log("Channel Element:", channel);
-  console.log("Target Audience Element:", targetAudience);
-  console.log("Status Element:", status);
 
   const originalData = [...data];
   let filteredData = [...data];
@@ -55,6 +72,8 @@ function addEventListeners() {
     // Display the filtered data in the HTML.
      const filteredCards = createCards(filteredData)
     renderInView(filteredCards, "containerCards");
+
+
   }
 
   const sort = document.querySelector("select[data-testid='select-sort']");
@@ -96,4 +115,8 @@ function addEventListeners() {
     const resetedData = createCards(data);
     renderInView(resetedData, "containerCards");
   }
-}
+  
+
+};
+
+

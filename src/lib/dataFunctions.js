@@ -52,5 +52,9 @@ export const filterData = (data, filterBy, value) => {
     return numbersOfChannels;
   };
 
-  
+  export const renderInView = (element, id) => {
+    const rootElement = document.getElementById(id);
+    rootElement.innerHTML = "";
+    rootElement.appendChild(element);
+  };
   

@@ -1,6 +1,5 @@
 import data from '../../data/dataset.js'
 import { computeStats } from '../../lib/dataFunctions.js'
-//import { header } from '../../staticsComponents/header.js';
 import { createCards } from './createCards.js';
 import { footer } from "../../staticsComponents/footer.js";
 
