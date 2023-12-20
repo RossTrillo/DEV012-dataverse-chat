@@ -1,5 +1,7 @@
 
 import { footer } from "../../staticsComponents/footer.js";
+// import { createCard } from "./mainSingleChat.js";
+
 export const singleChatView = () => {
     
     const link = document.createElement('link');
@@ -23,8 +25,8 @@ export const singleChatView = () => {
     const singleChatSection = document.createElement('section')
     singleChatSection.setAttribute("id", "singleSection")
     singleChatSection.innerHTML = `
-    <aside class="cardInfo">
-    "Información de cada programa"
+    <aside id="cardInfo">
+    
     </aside>
     <main class ="singleChat">
     </main>
