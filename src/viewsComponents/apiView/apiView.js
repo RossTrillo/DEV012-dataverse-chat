@@ -41,7 +41,9 @@ export const apiView = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = './viewsComponents/apiView/stylesAPI.css';
+
     document.head.appendChild(link);
+
     const container = document.createElement('div')
     container.setAttribute("id", "apiView")
     //Seleccionamos elemento padre que contendrá todos los nodos
@@ -60,7 +62,7 @@ export const apiView = () => {
     apiRoot.setAttribute("class", "main")
     apiRoot.innerHTML = `
     <input id ="password" type="password" >
-    <a href="/">
+    <a href="/chat">
     <button type="submit" id="button">Enviar</button>
     </a>
     <br>

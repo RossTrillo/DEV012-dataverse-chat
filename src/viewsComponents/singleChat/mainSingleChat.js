@@ -1,39 +1,3 @@
-/*
-const interactionWithIa = document.getElementById("button");
-interactionWithIa.addEventListener("click", addEventListeners); //
-
-
-
-function addEventListeners () {
-function sendMessage () {
-    const messageInput = document.getElementById("text"); //
-    
-    const message = messageInput.value;//
-
-
-    addMessage("Usuari@", message);
-
-    const answersIA = getAnswerIA(message);
-
-    addMessage("Personaje", answersIA);
-
-    messageInput.value = "";
-
-    }
-function addMessage(sender, message) {
-    const mainContainer = document.querySelector(".singleChat");
-    const newMessage = document.createElement("p");
-    newMessage.innerHTML = `${sender}: ${message}`;
-    mainContainer.appendChild(newMessage);
-}
-
-function getAnswerIA(message) {
-    return message;
-}
-}
-console.log(addEventListeners());
-*/
-
 const interactionWithIa = document.getElementById("button");
 interactionWithIa.addEventListener("click", sendMessage); //
 
@@ -46,25 +10,24 @@ interactionWithIa.addEventListener("click", sendMessage); //
 
     function sendMessage() {
         const messageInput = document.getElementById("text"); //
-        const message = messageInput.value;
-
-        addMessage("Usuari@", message);
-
-        const answersIA = getAnswerIA(message);
-
-        addMessage("Personaje", answersIA);
-
+        const  message = messageInput.value;
+        addMessage("Usuari@:", message);
+        getAnswerIA("Personaje:", message);
         messageInput.value = "";
     }
 
-    function addMessage(sender, message) {
+   function addMessage(sender, message) {
         const mainContainer = document.querySelector(".singleChat");
-        const newMessage = document.createElement("p");
-        newMessage.setAttribute("class", "p")
-        newMessage.innerHTML = `${sender}: <br> ${message}`;
+        const newMessage = document.createElement("section");
+        newMessage.setAttribute("class", "messageUser")
+        newMessage.innerHTML = `<p><b>Usuari@</b></p> ${message}`;
         mainContainer.appendChild(newMessage);
-    }
+    } 
 
-    function getAnswerIA(message) {
-        return message;
-    };
+    function getAnswerIA(sender, message) {
+        const mainContainer = document.querySelector(".singleChat");
+        const messageIA = document.createElement("section");
+        messageIA.setAttribute("class", "messageIa")
+        messageIA.innerHTML =`<p><b>${sender}</b></p> ${message}` ;
+        mainContainer.appendChild(messageIA);
+    }; 

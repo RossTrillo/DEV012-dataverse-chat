@@ -52,16 +52,27 @@ i {
 .cardInfo {
     width: 20%;
 }
-.p {
+.messageIa {
+    border-radius: 10%;
+    background-color: #e3e4cb;
+    border: solid black 1px;
+    margin: 5px;
+}
+
+.messageUser {
     border-radius: 10%;
     background-color: white;
     border: solid black 1px;
+    margin: 5px;
 }
 .singleChat {
     overflow: scroll;
     width: 80%;
 }
 
+p {
+    margin:2px;
+}
 
 #inputText {
     display: flex;

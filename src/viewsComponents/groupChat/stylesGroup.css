@@ -49,19 +49,22 @@ i {
     height: 380px;
 }
 
-.cardInfo {
-    width: 20%;
-}
-.p {
+
+/*.p {
     border-radius: 10%;
     background-color: white;
     border: solid black 1px;
-}
+} */
 .singleChat {
     overflow: scroll;
-    width: 80%;
+    width: 100%;
 }
 
+
+#sender {
+    color: red;
+    
+}
 
 #inputText {
     display: flex;
@@ -78,6 +81,23 @@ i {
     width: 20%;
 }
 
+.messageIa {
+        border-radius: 10%;
+        background-color: #e3e4cb;
+        border: solid black 1px;
+        margin: 5px;
+}
+
+.messageUser {
+        border-radius: 10%;
+        background-color: white;
+        border: solid black 1px;
+        margin: 5px;
+}
+
+p {
+    margin:2px;
+}
 #text {
     text-align: left;
     border-radius: 30px;
