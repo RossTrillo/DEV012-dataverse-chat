@@ -1,3 +1,4 @@
+import data from "../../data/dataset.js";
 const apiKey = localStorage.getItem("apiKey");
 
 if (!apiKey) {
@@ -17,6 +18,10 @@ interactionWithIa.addEventListener("click", sendMessage); //
         sendMessage();
     }
 });
+
+const programs = data.map(programa => programa.name);
+console.log(programs)
+
     function sendMessage() {
         const mainContainer = document.querySelector(".singleChat");
         const messageInput = document.getElementById("text");
@@ -43,10 +48,12 @@ interactionWithIa.addEventListener("click", sendMessage); //
 
         const apiUrl = "https://api.openai.com/v1/chat/completions";
 
+
+
         const requestBody = {
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: `Tu eres el personaje principal de la caricatura ${selectedCard.name}`},
+                { role: "system", content: `Tu eres uno de los personajes principales de la caricatura ${programs.join(', ')}`},
                 { role: "user", content: message }
             ]
         };
@@ -83,12 +90,3 @@ interactionWithIa.addEventListener("click", sendMessage); //
         mainContainer.scrollTop = mainContainer.scrollHeight;
     });
     };
-
-
-
-
-
-
-
-
-
