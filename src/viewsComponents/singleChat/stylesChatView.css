@@ -7,19 +7,19 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 13%;
+    height: 50px;
     padding: 10px;
     background-image: url(fun.png);
-    background-size: 43%;
+    background-size: 35%;
     background-repeat: no-repeat;
     align-items: center;
-    background-position-x: 40%;
+    background-position-x: 50%;
     border-bottom: 3px solid black;
 }
 
 i {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     background-size: cover;
     position: absolute;
     left: 89%;
@@ -36,11 +36,12 @@ i {
 }
 #singleSection{
     display: flex; 
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: 10%;
     margin-bottom: 3%;
-    width: 80%;  
-    height: 430px;
+    width: 85%;  
+    height: 400px;
+    justify-content: center;
 }
 
 li{
@@ -66,8 +67,9 @@ li{
     justify-content: center;
     align-items: center;
     width: 19em;
-    height: 27em;
+    height: 26em;
     text-align: center;
+    margin-top:5%;
 }
 
 .card section{
@@ -81,16 +83,17 @@ li{
 }
 
 .card .front {
-    width: 85%;
-    height: 100%;
+    width: 70%;
+    height: 85%;
     background:  rgba(254	209	229) ;
     transform: perspective(500px) rotateY(0deg);
     border: black solid;
     border-radius: 30px;
     padding: 15px;
-    font-size: medium;
+    font-size: small;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    justify-content: center;
 }
 
 
@@ -99,15 +102,11 @@ li{
     transform: perspective(500px) rotateY(-15deg);
 }
 
-
-
-
 .card .front dl {
     display: block;
     margin: inherit;
     width: 100%;
     height: 100%;
-   
 } 
 
 .p {
@@ -128,6 +127,9 @@ li{
     border-radius: 40px;
     padding: 12px;
     scroll-behavior: smooth;
+    height: 75%;
+    font-size: small;
+    margin-top: 3%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -137,6 +139,8 @@ p {
 
 #inputText {
     display: flex;
+    margin-top: -5%;
+    margin-left: 3%;
     
 }
 
@@ -144,12 +148,16 @@ p {
     width: 34%;
     text-align: justify;
     margin-left: 38%;
+
 }
 #button {
-    justify-content: right;
     font-size: large;
-    width: 8%;
-    margin: 15px 0 0 58px;
+    width: 10%;
+    height: 50px;
+    margin-top: 2%;
+    margin-left: 3%;
+    border-radius: 10%;
+    background-color: rgba(238,174,202,1);
 }
 
 #text {
@@ -157,15 +165,15 @@ p {
     border-radius: 30px;
     width: 100%;
     height: 25px;
-    font-size: large;
+    font-size: small;
     margin: 10px 0;
 }
 .footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0px;
     right: 0px;
-    margin-left: 48%;
+    text-align: center;
 }
 
 .messageIa {
@@ -192,3 +200,191 @@ p {
 p {
     margin:2px;
 }
+
+
+
+    /* Mediaquery Mobile */
+    @media ( max-width: 480px) {
+        .singleChat {
+            width: 100%; 
+            margin: 0;
+        }
+    .header {
+        height: auto;
+        background-position: center;
+        background-size: 50%;
+    }
+
+    i {
+        background-size: 50%;
+        left: 85%;
+        background-repeat: no-repeat;
+        width: 12%;
+        height: 100%;
+        background-position: center;
+    }
+
+    #singleSection {
+        margin-top: 4em;
+        margin-left: 0%;
+        width: 100%;
+        height: 22em;
+    }
+
+    .singleChat {
+        width: 65%;
+        margin:0;
+        height: 90%;
+    }
+
+    #cardInfo {
+        width: 45%;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+    }
+
+    .card .front {
+        width: 80%;
+        height: 85%;
+        padding: 5%;
+        border-radius: 30px;
+    }
+
+    li {
+        height: 100%;
+    }
+
+    .card .front dl {
+        height: 70%;
+        margin-top: -6em;
+        font-size: xx-small;
+    }
+
+    figure {
+        width: 50%;
+        margin: 1%;
+        margin-left: 16%;
+    }
+
+    .img {
+        width: 130%;
+        height: 100%;
+    }
+
+    .card .front dl {
+    margin-top:-2em;
+    font-size: smaller;
+    }
+
+    #inputText {
+        margin: 2%;
+    }
+
+    #questions {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #text {
+        width: 80%;
+    }
+
+    #button {
+        width: 30%;
+        margin-left: 0;
+    }
+
+    }
+
+    @media  ( min-width: 481px) and (max-width:1024px) {
+        i {
+            background-size: 73%;
+            width: 10%;
+            height: 4em;
+            background-position: center;
+            left: 80%;
+            background-repeat: no-repeat;
+        }
+    
+        .header {
+            height: 3em;
+            background-size: 40%;
+            background-position: center;
+        }
+
+        #singleSection {
+            margin-top: 4em;
+            margin-left: 0%;
+            width: 100%;
+            height: 22em;
+            margin-top:5em;
+        }
+
+        .singleChat {
+            width: 65%;
+            margin:0;
+            height: 90%;
+        }
+
+        #cardInfo {
+            width: 35%;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+        }
+
+        .card .front {
+            width: 60%;
+            height: 85%;
+            padding: 5%;
+        }
+
+        li {
+            height: 100%;
+        }
+
+        .card .front dl {
+            height: 70%;
+        }
+
+        figure {
+            width: 50%;
+            margin: 1%;
+            margin-left: 16%;
+        }
+
+        .img {
+            width: 130%;
+            height: 100%;
+        }
+
+        .card .front dl {
+        margin-top:-2em;
+        font-size: smaller;
+        }
+
+        #inputText {
+            margin: 2%;
+        }
+
+        #questions {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        #text {
+            width: 80%;
+        }
+
+        #button {
+            width: 30%;
+            margin-left: 0;
+        }
+    }
