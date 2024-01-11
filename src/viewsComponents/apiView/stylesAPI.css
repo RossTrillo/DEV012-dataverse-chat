@@ -8,14 +8,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 13%;
+    height: 85px;
     padding: 10px;
     background-image: url(fun.png);
-    background-size: 43%;
     background-repeat: no-repeat;
     align-items: center;
-    background-position-x: 40%;
+    background-position-x: 50%;
     border-bottom: 3px solid black;
+    background-size: 650px;
 }
 
 i {
@@ -23,42 +23,38 @@ i {
     height: 90px;
     background-size: cover;
     position: absolute;
-    left: 89%;
+    left: 88%;
     margin: 0;
     top: 0;
     background-image: url(263115.png);
 }
 .main{
-    position: fixed;
+    display: flex;
+    position: absolute;
     left: 10px;
     right: 0;
-    top: 7%;
+    top: 150px;
+    margin: 50px 50px;
+    flex-direction: column;
+    align-items: center;
 }
 #phrase {
-    margin-top: 15%;
-    text-align: left;
-    justify-content: left;
-    margin-left: 10%;
-    width: 30%;
-    font-family: cursive;
+    align-self: center;
+    font-size: xx-large;
 }
 
 #button {
-    justify-content: right;
-    margin-left: 60%;
-    font-size: large;
-    padding: 20px;
-    width: 15%;
+    margin: 0;
+    font-size: x-large;
+    padding: 9px 45px;
+    border-radius: 18px;
 }
 
 #password {
-    margin-top: 10%;
-    text-align: left;
-    margin-left: 10%;
-    width: 40%;
-    height: 10%;
+    width: 58%;
     border-radius: 30px;
-    font-size: x-large;
+    margin: 55px 0;
+    font-size: 25px;
 }
 
 .footer {
@@ -66,5 +62,129 @@ i {
     bottom: 0;
     left: 0px;
     right: 0px;
-    margin-left: 48%;
+    text-align: center;
+}
+
+/* Mediaquery Mobile */
+@media ( max-width: 480px) {
+
+    .header {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        background-image: url(fun.png);
+        background-repeat: no-repeat;
+        background-position-x: -1%;
+        border-bottom: 3px solid black;
+        background-size: 340px;
+    }
+
+    i {
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        position: absolute;
+        left: 89%;
+        margin: 0;
+        top: 6px;
+        background-image: url(263115.png);
+    }
+
+
+    .main{
+        display: flex;
+        position: absolute;
+        left: 10px;
+        right: 0;
+        top: 150px;
+        margin: 50px 10px;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    #phrase {
+        font-size: 34px;
+        text-align: center;
+    }
+    
+    #button {
+        margin: 0;
+        font-size: 25px;
+        padding: 9px 25px;
+        border-radius: 18px;
+    
+    }
+    
+    #password {
+        width: 90%;
+    border-radius: 30px;
+    margin: 20px;
+    font-size: xx-large;
+    }
+
+}
+
+/* Mediaquery Tablets*/
+@media ( min-width: 481px) and (max-width:1023px){
+
+
+    .header {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 10px;
+        background-image: url(fun.png);
+        background-repeat: no-repeat;
+        border-bottom: 3px solid black;
+        background-size: 520px;
+    }
+
+    i {
+        width: 60px;
+        height: 60px;
+        background-size: cover;
+        position: absolute;
+        margin: 0px;
+        top: 6px;
+        background-image: url(263115.png);
+        left: 89%;
+    }
+
+
+    .main{
+        display: flex;
+        position: absolute;
+        left: 10px;
+        right: 0;
+        top: 150px;
+        margin: 50px 10px;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    #phrase {
+        align-self: center;
+        font-size: 35px;
+    }
+    
+    #button {
+        margin: 0;
+        font-size: 25px;
+        padding: 9px 25px;
+        border-radius: 18px;
+    
+    }
+    
+    #password {
+        width: 85%;
+        border-radius: 30px;
+        margin: 22px;
+        font-size: xx-large;
+    }
+
 }

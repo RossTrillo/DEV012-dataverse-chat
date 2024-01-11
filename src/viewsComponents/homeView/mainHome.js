@@ -5,30 +5,47 @@ import { renderInView } from "../../lib/dataFunctions.js";
 
 // Eventos del DOM para el home View
 
-addEventListeners();
-document.querySelector("#containerCards").addEventListener('click', (e) =>{
+// const urlSearchParams = new URLSearchParams(window.location.search);
+// console.log("🚀 ~ file: mainHome.js:9 ~ urlSearchParams:", urlSearchParams)
+// const itemClicked = urlSearchParams.get("item");
+// console.log("🚀 ~ file: mainHome.js:11 ~ itemClicked:", itemClicked)
 
+// const iconElement = document.querySelector(".chatGroup");
+
+// // Set the custom data-item attribute based on itemClicked
+// iconElement.setAttribute("data-item", itemClicked);
+
+// // Add click event listener to the icon
+// iconElement.addEventListener("click", () => {
+// // Read the custom data-item attribute
+//   const clickedItem = iconElement.getAttribute("data-item");
+// })
+  
+  
+
+
+addEventListeners();
+document.querySelector("#containerCards").addEventListener("click", (e) => {
   const card = e.target.closest(".liClass");
-  if(card){
-    e.preventDefault()
-    e.stopPropagation()
-    
-    const cartoonId = card.getAttribute('data-id')
-    console.log("🚀 ~ file: mainHome.js:103 ~ card.addEventListener ~ cartoonId:", cartoonId)
+  if (card) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const cartoonId = card.getAttribute("data-id");
+   
 
     const cartoonSelected = data.find((element) => element.id === cartoonId);
-    console.log("🚀 ~ file: mainHome.js:112 ~ card.addEventListener ~ cartoonSelected:", cartoonSelected)
+    
 
-    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
+    sessionStorage.setItem("cartoonSelected", JSON.stringify(cartoonSelected));
 
-    window.location.href = '/api';
+    const dataItemValue = card.getAttribute("data-item");
+    console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
+    localStorage.setItem("dataItem", dataItemValue)
+
+    window.location.href = "/api";
   }
-
-  });
-
-
-
-
+});
 
 function addEventListeners() {
   console.log("Event listeners are active.");
@@ -36,13 +53,14 @@ function addEventListeners() {
   //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
   const channel = document.querySelector("select[name='channel']");
-  const targetAudience = document.querySelector("select[name='targetAudience']");
+  const targetAudience = document.querySelector(
+    "select[name='targetAudience']"
+  );
   const status = document.querySelector("select[name='status']");
 
   channel.addEventListener("change", applyFilters);
   targetAudience.addEventListener("change", applyFilters);
   status.addEventListener("change", applyFilters);
-
 
   const originalData = [...data];
   let filteredData = [...data];
@@ -67,13 +85,14 @@ function addEventListeners() {
     if (selectedTransmission !== "Todos") {
       filteredData = filterData(filteredData, "status", selectedTransmission);
     }
-    console.log("🚀 ~ file: mainHome.js:54 ~ applyFilters ~ filteredData:", filteredData)
+    console.log(
+      "🚀 ~ file: mainHome.js:54 ~ applyFilters ~ filteredData:",
+      filteredData
+    );
 
     // Display the filtered data in the HTML.
-     const filteredCards = createCards(filteredData)
+    const filteredCards = createCards(filteredData);
     renderInView(filteredCards, "containerCards");
-
-
   }
 
   const sort = document.querySelector("select[data-testid='select-sort']");
@@ -93,7 +112,6 @@ function addEventListeners() {
     document.getElementById("sideBar").classList.toggle("active");
   });
 
-  
   const buttonReset = document.querySelector(
     "button[data-testid='button-clear']"
   );
@@ -115,8 +133,19 @@ function addEventListeners() {
     const resetedData = createCards(data);
     renderInView(resetedData, "containerCards");
   }
-  
+}
 
-};
+const chatGroupIcon = document.querySelector(".chatGroup");
+chatGroupIcon.addEventListener("click", handleChatGroupClick);
 
+function handleChatGroupClick(event) {
+    // Retrieve the data-item attribute value
+    const dataItemValue = event.currentTarget.getAttribute("data-item");
 
+    // Do something with the data-item value
+    console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
+    localStorage.setItem("dataItem", dataItemValue);
+
+    window.location.href ="/api"
+
+}

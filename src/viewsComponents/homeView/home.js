@@ -1,38 +1,36 @@
-import data from '../../data/dataset.js'
-import { computeStats } from '../../lib/dataFunctions.js'
-import { createCards } from './createCards.js';
+import data from "../../data/dataset.js";
+import { computeStats } from "../../lib/dataFunctions.js";
+import { createCards } from "./createCards.js";
 import { footer } from "../../staticsComponents/footer.js";
 
-
 const home = () => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = './viewsComponents/homeView/stylesHome.css';
-    document.head.appendChild(link);
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "./viewsComponents/homeView/stylesHome.css";
+  document.head.appendChild(link);
 
-    const homeHeader = document.createElement("header")
-    homeHeader.setAttribute("class", "header")
-    homeHeader.innerHTML = `
+  const homeHeader = document.createElement("header");
+  homeHeader.setAttribute("class", "header");
+  homeHeader.innerHTML = `
     <img id="cartoon">
     <a href="/">
     <i class="fa-solid fa-house"></i>
     </a>
-    `
+    `;
 
-    const container = document.createElement('section')
-    container.setAttribute("id", "home")
+  const container = document.createElement("section");
+  container.setAttribute("id", "home");
 
-    const buttonToggle = document.createElement("section");
-    buttonToggle.innerHTML = ` 
+  const buttonToggle = document.createElement("section");
+  buttonToggle.innerHTML = ` 
     <section class="toggle-btn">
-    <a href= "/api">
-    <i class="chat"></i> 
-    </a>
+    
+    <i class="chatGroup" data-item="group"></i> 
+   
     <p class = "panel"><b>Chatea con los personajes<b> </p>
   </section>`;
-    
 
-    const filtersHtml = `
+  const filtersHtml = `
       <main>
         <h2>
           <i>Filtros</i>
@@ -77,46 +75,40 @@ const home = () => {
       </main>
     `;
 
-    
-    const ulStatistics = 
-   `<ul>
+  const ulStatistics = `<ul>
     <li> Disney Channel: ${computeStats(data)["Disney Channel"]} </li>
     <li> Cartoon Network: ${computeStats(data)["Cartoon Network"]} </li>
     <li> Discovery Kids: ${computeStats(data)["Discovery Kids"]} </li>
     <li> Nickelodeon: ${computeStats(data)["Nickelodeon"]} </li>
     </ul>
     `;
-    
 
-    const sidebarHtml = document.createElement("section") 
-    sidebarHtml.innerHTML = `<section id="sideBar" class="active">
+  const sidebarHtml = document.createElement("section");
+  sidebarHtml.innerHTML = `<section id="sideBar" class="active">
         ${filtersHtml}
         ${ulStatistics}
       </section>
     `;
-    
-    const cards = createCards(data);
 
-    const containerCards = document.createElement("section");
-    containerCards.setAttribute("id", "containerCards");
-    containerCards.appendChild(cards)
+  const cards = createCards(data);
+
+  const containerCards = document.createElement("section");
+  containerCards.setAttribute("id", "containerCards");
+  containerCards.appendChild(cards);
 
   //container.appendChild(containerHeader);
   container.appendChild(homeHeader);
-   container.appendChild(buttonToggle);
-   container.appendChild(sidebarHtml);
-   container.insertAdjacentElement('beforeend', containerCards);
-   container.appendChild(footer);
+  container.appendChild(buttonToggle);
+  container.appendChild(sidebarHtml);
+  container.insertAdjacentElement("beforeend", containerCards);
+  container.appendChild(footer);
 
-   const script = document.createElement("script");
-    script.src = "./viewsComponents/homeView/mainHome.js"
-    script.type = "module"
-    document.body.appendChild(script)
-   
-    return container
+  const script = document.createElement("script");
+  script.src = "./viewsComponents/homeView/mainHome.js";
+  script.type = "module";
+  document.body.appendChild(script);
 
+  return container;
 };
-
-
 
 export default home;
