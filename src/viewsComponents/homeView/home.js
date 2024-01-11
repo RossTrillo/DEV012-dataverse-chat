@@ -24,9 +24,10 @@ const home = () => {
   const buttonToggle = document.createElement("section");
   buttonToggle.innerHTML = ` 
     <section class="toggle-btn">
-    
+    <spam class="spam">&#9776;</spam>
+    </section>
+    <section class="iconChatGroup">
     <i class="chatGroup" data-item="group"></i> 
-   
     <p class = "panel"><b>Chatea con los personajes<b> </p>
   </section>`;
 

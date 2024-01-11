@@ -37,7 +37,8 @@ document.querySelector("#containerCards").addEventListener("click", (e) => {
     const cartoonSelected = data.find((element) => element.id === cartoonId);
     
 
-    sessionStorage.setItem("cartoonSelected", JSON.stringify(cartoonSelected));
+    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
+  
 
     const dataItemValue = card.getAttribute("data-item");
     console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
@@ -45,7 +46,10 @@ document.querySelector("#containerCards").addEventListener("click", (e) => {
 
     window.location.href = "/api";
   }
-});
+
+  });
+
+
 
 function addEventListeners() {
   console.log("Event listeners are active.");
@@ -135,17 +139,13 @@ function addEventListeners() {
   }
 }
 
+
 const chatGroupIcon = document.querySelector(".chatGroup");
-chatGroupIcon.addEventListener("click", handleChatGroupClick);
+chatGroupIcon. addEventListener("click", handleChatGroupClick);
 
 function handleChatGroupClick(event) {
-    // Retrieve the data-item attribute value
-    const dataItemValue = event.currentTarget.getAttribute("data-item");
-
-    // Do something with the data-item value
-    console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
-    localStorage.setItem("dataItem", dataItemValue);
-
-    window.location.href ="/api"
-
+  const dataItemValue = event.currentTarget.getAttribute("data-item");
+  console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
+  localStorage.setItem("dataItem", dataItemValue);
+  window.location.href = "/api"
 }
