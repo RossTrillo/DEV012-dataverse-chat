@@ -20,13 +20,14 @@ document.querySelector("#containerCards").addEventListener('click', (e) =>{
     console.log("🚀 ~ file: mainHome.js:112 ~ card.addEventListener ~ cartoonSelected:", cartoonSelected)
 
     sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
+    const dataItemValue = card.getAttribute("data-item");
+    console.log("Clicked on chatGroup. Data-item value: ", dataItemValue);
+    localStorage.setItem("dataItem", dataItemValue)
 
     window.location.href = '/api';
   }
 
   });
-
-
 
 
 
@@ -119,4 +120,12 @@ function addEventListeners() {
 
 };
 
+const chatGroupIcon = document.querySelector(".chatGroup");
+chatGroupIcon. addEventListener("click", handleChatGroupClick);
 
+function handleChatGroupClick(event) {
+  const dataItemValue = event.currentTarget.getAttribute("data-item");
+  console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
+  localStorage.setItem("dataItem", dataItemValue);
+  window.location.href = "/api"
+}

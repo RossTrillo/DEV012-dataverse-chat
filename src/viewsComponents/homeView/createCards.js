@@ -10,7 +10,7 @@ export const createCards = (data) => {
       // //Inyectar cada li con los datos de cada elemento
       const li = `
       
-      <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person">
+      <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person" data-item="singleChat">
       <a href="#" class="card-link">
       <section class="card">
   

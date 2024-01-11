@@ -14,9 +14,15 @@ export default errorView;
 import { footer } from "../../staticsComponents/footer.js";
 export const errorView = () => {
 
+  /*const meta = document.createElement("meta");
+  meta.name = "viewport";
+  meta.content = "width=device-width, initial-scale=1.0" */
+
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = './viewsComponents/errorView/stylesError.css';
+
+ /* document.head.appendChild(meta); */
   document.head.appendChild(link);
 
   //Seleccionamos elemento padre que contendrá todos los nodos
@@ -34,8 +40,7 @@ export const errorView = () => {
   `
 
   const errorRoot = document.getElementById('root')
-  errorRoot.innerHTML = `<img id="triste"><br>
-  <section>404<br>Page not found</section>`
+  errorRoot.innerHTML = `<img id="triste"><p><b>404 <br>PAGE NOT FOUND<b></p>`
 
   document.body.appendChild(footer);
   errorPageView.appendChild(apiHeader);

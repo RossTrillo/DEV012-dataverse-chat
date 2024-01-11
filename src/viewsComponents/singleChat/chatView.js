@@ -26,7 +26,6 @@ export const singleChatView = () => {
     singleChatSection.setAttribute("id", "singleSection")
     singleChatSection.innerHTML = `
     <aside id="cardInfo">
-    
     </aside>
     <main class ="singleChat">
     </main>
