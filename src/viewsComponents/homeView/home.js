@@ -13,9 +13,10 @@ const home = () => {
   homeHeader.setAttribute("class", "header");
   homeHeader.innerHTML = `
     <img id="cartoon">
-    <a href="/">
-    <i class="fa-solid fa-house"></i>
-    </a>
+    <section class="iconChatGroup">
+    <i class="chatGroup" data-item="group"></i> 
+    <p class = "panel"><b>Chatea con los personajes<b> </p>
+  </section>
     `;
 
   const container = document.createElement("section");
@@ -26,10 +27,7 @@ const home = () => {
     <section class="toggle-btn">
     <spam class="spam">&#9776;</spam>
     </section>
-    <section class="iconChatGroup">
-    <i class="chatGroup" data-item="group"></i> 
-    <p class = "panel"><b>Chatea con los personajes<b> </p>
-  </section>`;
+    `;
 
   const filtersHtml = `
       <main>

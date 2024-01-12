@@ -36,11 +36,20 @@ export const errorView = () => {
   </a>
   `;
 
-  const errorRoot = document.getElementById('root')
+  const errorRoot = document.createElement('section');
+  errorRoot.setAttribute("class","root")
   errorRoot.innerHTML = `<img id="triste"><p><b>404 <br>PAGE NOT FOUND<b></p>`
 
-  document.body.appendChild(footer);
+  // document.body.appendChild(footer);
+  // errorPageView.appendChild(apiHeader);
+  // errorPageView.insertBefore(errorRoot);
+
   errorPageView.appendChild(apiHeader);
-  errorPageView.insertBefore(errorRoot);
+  errorPageView.appendChild(errorRoot);
+
+  // Append the footer to the error view container
+  errorPageView.appendChild(footer);
+
+  
   return errorPageView;
 };
