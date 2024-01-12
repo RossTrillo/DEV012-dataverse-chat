@@ -42,8 +42,11 @@ export const errorView = () => {
   const errorRoot = document.getElementById('root')
   errorRoot.innerHTML = `<img id="triste"><p><b>404 <br>PAGE NOT FOUND<b></p>`
 
-  document.body.appendChild(footer);
+  //document.body.appendChild(footer);
   errorPageView.appendChild(apiHeader);
   errorPageView.insertBefore(errorRoot);
+  errorPageView.insertBefore(footer);
+  //errorPageView.insertBefore(errorRoot);
+ 
   return errorPageView;
 }
