@@ -8,11 +8,19 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 45%;
+        height: 85px;
+        padding: 10px;
         background-image: url(fun.png);
-        background-size: 42%;
         background-repeat: no-repeat;
+        align-items: center;
         background-position-x: 50%;
+      
+        background-size: 650px;
+    }
+
+    ul{
+        list-style: none;
+    padding: 0;
     }
 
 
@@ -43,17 +51,23 @@
         color: transparent;
     }
 
+    button{
+        border-radius: 7px;
+    border: 1px solid black;
+    height: 25px;
+    }
+
     .chatGroup {
-        width: 70px;
-        height: 70px;
-        background-size: cover;
-        position: absolute;
-        margin: 8px;
-        top: 0;
-        background-image: url(chat.png);
-        border: none;
-        margin-left: 30px;
-        cursor: pointer;
+        width: 65px;
+    height: 65px;
+    background-size: cover;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    background-image: url(chat.png);
+    border: none;
+    margin-left: 30px;
+    cursor: pointer;
     }
 
     .iconChatGroup {
@@ -68,18 +82,19 @@
         margin: 0;
         width: 150px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-top: 35px;
     }
 
     .ulClass{
         margin-left: 18%;
-        display: flex;
-        align-items: baseline;
-        flex-wrap: wrap;
-        list-style: none;
-        column-gap: 5%;
-        row-gap: 60px;
-        justify-content: center;
-        padding: 1%;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    list-style: none;
+    column-gap: 2%;
+    row-gap: 60px;
+    justify-content: center;
+    padding: 1%;
     } 
 
     .img {
@@ -131,30 +146,12 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
 
-    .card .back {
-        width: 85%;
-        height: 100%;
-        background: radial-gradient(circle, rgba(148,187,233,1) 0%, rgba(238,174,202,1) 100%);
-        transform: perspective(500px) rotateY(180deg);
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        text-align: justify;
-        padding: 15px;
-        border: black solid;
-        border-radius: 30px;
-        font-size: small;
-        text-align: justify;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    }
 
     .card:hover .front {
-        transform: perspective(500px) rotateY(180deg);
+        transform: perspective(500px) rotateY(-15deg);
     }
 
-    .card:hover .back {
-        transform: perspective(500px) rotateY(360deg);
-    }
+    
 
 
     .card .front dl {
@@ -231,10 +228,19 @@
     }
     
     /* Mediaquery Tablets*/
-    @media  ( min-width: 481px) and (max-width:1024px) {
+    @media  ( min-width: 481px) and (max-width:1023px) {
 
         .header {
-            background-size: 50%;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            padding: 10px;
+            background-image: url(fun.png);
+            background-repeat: no-repeat;
+            
+            background-size: 520px;
         }
         
         #sideBar {
@@ -271,8 +277,14 @@
             left: 1%;
         }
 
+        main{
+            padding-top: 90px;
+        }
+
         .spam {
             position: fixed;
+    font-size: 65px;
+    margin: 0px 0 0 40px;
         }
         
         #root {
@@ -291,28 +303,22 @@
 
         .ulClass {
             margin-left: 0%;
-            column-gap: 3%;
+            column-gap: 2%;
     }
 
     .footer {
         margin-left: 45%;
     }
 
-    .chatGroup {
-        background-size: 80%;
-        background-repeat: no-repeat;
-        background-position-x: center;
-        width: 10%;
-        height: 100%;
-    }
+   
 
     .panel {
-        font-size: x-small;
+        font-size: larger;
     }
     }
 
     /* Mediaquery Desktop*/
-    @media (min-width: 1025px) {
+    @media (min-width: 1024px) {
 
         
         #sideBar {

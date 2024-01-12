@@ -1,14 +1,14 @@
 export const createCards = (data) => {
-    // Aquí comienza tu código y puedes retornar lo que tu necesites
-    //Crear un elemento ul por cada elemento en data
-    const ul = document.createElement("ul");
-    ul.setAttribute("class","ulClass")
-    data.forEach(createLi);
-  
-    function createLi(element) {
-      // const li = document.createElement("li");
-      // //Inyectar cada li con los datos de cada elemento
-      const li = `
+  // Aquí comienza tu código y puedes retornar lo que tu necesites
+  //Crear un elemento ul por cada elemento en data
+  const ul = document.createElement("ul");
+  ul.setAttribute("class", "ulClass");
+  data.forEach(createLi);
+
+  function createLi(element) {
+    // const li = document.createElement("li");
+    // //Inyectar cada li con los datos de cada elemento
+    const li = `
       
       <li class="liClass" data-id="${element.id}" itemscope itemtype="https://schema.org/Person" data-item="singleChat">
       <a href="#" class="card-link">
@@ -43,19 +43,18 @@ export const createCards = (data) => {
       </li>
       
     `;
-  
-      //Cada li inyectarlo en la ul
-      ul.innerHTML += li;
-    }
-  
-    //Renderizar el ul, esto debe estar en el main.js
-    return ul;
-  };
 
-  export function createCard (infoCard){
+    //Cada li inyectarlo en la ul
+    ul.innerHTML += li;
+  }
 
-    const li = document.createElement('li');
-    li.innerHTML=`
+  //Renderizar el ul, esto debe estar en el main.js
+  return ul;
+};
+
+export function createCard(infoCard) {
+  const li = document.createElement("li");
+  li.innerHTML = `
     <li class="liClass" data-id="${infoCard.id}" itemscope itemtype="https://schema.org/Person">
       <section class="card">
   
@@ -68,8 +67,7 @@ export const createCards = (data) => {
           <dd itemprop="shortDescription">${infoCard.description}</dd>
           
           </section>
-    `
+    `;
 
-    return li
-
+  return li;
 }

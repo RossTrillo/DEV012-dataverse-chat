@@ -1,5 +1,3 @@
-
-
 /* const errorView = () => {
   const errorPage = document.createElement("main");
   errorPage.innerHTML = `<main>
@@ -10,7 +8,7 @@
 };
 
 export default errorView;
-*/ 
+*/
 import { footer } from "../../staticsComponents/footer.js";
 export const errorView = () => {
 
@@ -26,24 +24,32 @@ export const errorView = () => {
   document.head.appendChild(link);
 
   //Seleccionamos elemento padre que contendrá todos los nodos
-  const errorPageView = document.querySelector('.all')
-  
+  const errorPageView = document.querySelector(".all");
 
   //Creamos elementos
-  const apiHeader = document.createElement("header")
-  apiHeader.setAttribute("class", "header")
+  const apiHeader = document.createElement("header");
+  apiHeader.setAttribute("class", "header");
   apiHeader.innerHTML = `
   <img id="cartoon">
   <a href="/">
   <i class="fa-solid fa-house"></i>
   </a>
-  `
+  `;
 
-  const errorRoot = document.getElementById('root')
+  const errorRoot = document.createElement('section');
+  errorRoot.setAttribute("class","root")
   errorRoot.innerHTML = `<img id="triste"><p><b>404 <br>PAGE NOT FOUND<b></p>`
 
-  document.body.appendChild(footer);
+  // document.body.appendChild(footer);
+  // errorPageView.appendChild(apiHeader);
+  // errorPageView.insertBefore(errorRoot);
+
   errorPageView.appendChild(apiHeader);
-  errorPageView.insertBefore(errorRoot);
+  errorPageView.appendChild(errorRoot);
+
+  // Append the footer to the error view container
+  errorPageView.appendChild(footer);
+
+  
   return errorPageView;
-}
+};

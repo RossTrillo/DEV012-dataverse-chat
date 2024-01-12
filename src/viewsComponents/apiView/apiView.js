@@ -37,42 +37,50 @@ console.log(apiRoot);
 
 import { footer } from "../../staticsComponents/footer.js";
 export const apiView = () => {
-    //
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = './viewsComponents/apiView/stylesAPI.css';
 
-    document.head.appendChild(link);
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "./viewsComponents/apiView/stylesAPI.css";
 
-    const container = document.createElement('div')
-    container.setAttribute("id", "apiView")
-    //Seleccionamos elemento padre que contendrá todos los nodos
-    // const apiKeyView = document.querySelector('.all')
-    //Creamos elementos
-    const apiHeader = document.createElement("header")
-    apiHeader.setAttribute("class", "header")
-    apiHeader.innerHTML = `
+  document.head.appendChild(link);
+
+  const container = document.createElement("div");
+  container.setAttribute("id", "apiView");
+  //Seleccionamos elemento padre que contendrá todos los nodos
+  // const apiKeyView = document.querySelector('.all')
+  //Creamos elementos
+  const apiHeader = document.createElement("header");
+  apiHeader.setAttribute("class", "header");
+  apiHeader.innerHTML = `
     <img id="cartoon">
     <a href="/">
     <i class="fa-solid fa-house"></i>
     </a>
-    `
-    const apiRoot = document.createElement('main')
-    apiRoot.setAttribute("id", "apiRoot")
-    apiRoot.setAttribute("class", "main")
-    apiRoot.innerHTML = `
-    <input id ="password" type="password" >
-    <a href="/chat">
-    <button type="submit" id="button">Enviar</button>
-    </a>
-    <br>
+    `;
+  const apiRoot = document.createElement("main");
+  apiRoot.setAttribute("id", "apiRoot");
+  apiRoot.setAttribute("class", "main");
+  apiRoot.innerHTML = `
     <label for="password" id="phrase">Ingresa tu API key:</label>
-    `
-    //Agregamos los elementos con appendChild
-    container.appendChild(apiHeader);
-    container.appendChild(apiRoot);
-    document.body.appendChild(container);
-    document.body.appendChild(footer);
-    return container
-//    document.body.insertAdjacentElement('beforeend', footer);
-}
+
+    <input id ="password" type="password" >
+    
+    <button type="submit" id="button">Enviar</button>
+    
+   
+    `;
+
+  //Agregamos los elementos con appendChild
+  container.appendChild(apiHeader);
+  container.appendChild(apiRoot);
+  document.body.appendChild(container);
+  document.body.appendChild(footer);
+
+  const script = document.createElement("script");
+  script.src = "./viewsComponents/apiView/mainApi.js";
+  script.type = "module";
+  document.body.appendChild(script);
+
+  return container;
+  //    document.body.insertAdjacentElement('beforeend', footer);
+};
