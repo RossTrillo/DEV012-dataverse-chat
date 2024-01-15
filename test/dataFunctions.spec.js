@@ -1,6 +1,7 @@
 import { computeStats, filterData } from "../src/lib/dataFunctions.js";
 import data from "../src/data/dataset.js";
 import { sortData } from "../src/lib/dataFunctions.js";
+import { apiView } from './apiView';
 
 describe("filtro por canales", () => {
   it("Debe filtrar por programas de Disney Channel", () => {
@@ -61,4 +62,16 @@ describe("Estadistica Global", () => {
     const globalStatictic = computeStats(data);
     expect(globalStatictic).toStrictEqual(channelStatistics);
   });
+});
+
+
+
+test('apiView renderiza con el componente footer', () => {
+  document.body.innerHTML = '';
+  document.body.appendChild(apiView());
+
+  // Check if the footer element is present
+  const footerElement = document.querySelector('.footer');
+  expect(footerElement).toBeInTheDocument();
+  // expect(footerElement.textContent).toBe('Isis Y Ross 2023');
 });
