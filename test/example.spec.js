@@ -1,6 +1,7 @@
 import { singleChatResponse } from "../src/lib/Chat.Api";
 import { selectedCard } from "../src/viewsComponents/singleChat/mainSingleChat";
 
+
 const OpenIAResponse = jest.fn();
 
 global.fetch = jest.fn(() => Promise.resolve({ json: OpenIAResponse }));
@@ -33,3 +34,25 @@ describe("Endopoint de OpenIA", () => {
     );
   });
 });
+
+it("El edpoint responde de manera correcta", () => {
+  const response = {
+    choices: [
+      {
+        message: {
+          role: "assistant",
+          content: "¡Hola!",
+        },
+      },
+    ],
+  };
+
+  OpenIAResponse.mockResolvedValueOnce(response);
+
+  return singleChatResponse("1234", [{ role: "user", contet: "foo" }]).then(
+    (resolved) => {
+      expect(resolved).toBe(response);
+    }
+  );
+});
+
