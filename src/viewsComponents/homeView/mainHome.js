@@ -20,9 +20,6 @@ import { renderInView } from "../../lib/dataFunctions.js";
 // // Read the custom data-item attribute
 //   const clickedItem = iconElement.getAttribute("data-item");
 // })
-  
-  
-
 
 addEventListeners();
 document.querySelector("#containerCards").addEventListener("click", (e) => {
@@ -32,27 +29,21 @@ document.querySelector("#containerCards").addEventListener("click", (e) => {
     e.stopPropagation();
 
     const cartoonId = card.getAttribute("data-id");
-   
 
     const cartoonSelected = data.find((element) => element.id === cartoonId);
-    
 
-    sessionStorage.setItem('cartoonSelected', JSON.stringify(cartoonSelected));
-  
+    sessionStorage.setItem("cartoonSelected", JSON.stringify(cartoonSelected));
 
     const dataItemValue = card.getAttribute("data-item");
-    console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
-    localStorage.setItem("dataItem", dataItemValue)
+    //console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
+    localStorage.setItem("dataItem", dataItemValue);
 
     window.location.href = "/api";
   }
-
-  });
-
-
+});
 
 function addEventListeners() {
-  console.log("Event listeners are active.");
+  //console.log("Event listeners are active.");
 
   //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
@@ -70,7 +61,7 @@ function addEventListeners() {
   let filteredData = [...data];
 
   function applyFilters() {
-    console.log("applyFilters function called");
+    //console.log("applyFilters function called");
     // Create a copy of the original data to apply filters
     filteredData = [...originalData];
 
@@ -89,10 +80,10 @@ function addEventListeners() {
     if (selectedTransmission !== "Todos") {
       filteredData = filterData(filteredData, "status", selectedTransmission);
     }
-    console.log(
-      "🚀 ~ file: mainHome.js:54 ~ applyFilters ~ filteredData:",
-      filteredData
-    );
+    //console.log(
+    //"🚀 ~ file: mainHome.js:54 ~ applyFilters ~ filteredData:",
+    //filteredData
+    //);
 
     // Display the filtered data in the HTML.
     const filteredCards = createCards(filteredData);
@@ -123,10 +114,10 @@ function addEventListeners() {
   buttonReset.addEventListener("click", resetFiltersAndRenderItems);
 
   function resetFiltersAndRenderItems() {
-    console.log(
-      "🚀 ~ file: index.js:131 ~ resetFiltersAndRenderItems ~ resetFiltersAndRenderItems:",
-      resetFiltersAndRenderItems
-    );
+    // console.log(
+    // "🚀 ~ file: index.js:131 ~ resetFiltersAndRenderItems ~ resetFiltersAndRenderItems:",
+    // resetFiltersAndRenderItems
+    // );
 
     channel.selectedIndex = 0;
     targetAudience.selectedIndex = 0;
@@ -139,13 +130,12 @@ function addEventListeners() {
   }
 }
 
-
 const chatGroupIcon = document.querySelector(".chatGroup");
-chatGroupIcon. addEventListener("click", handleChatGroupClick);
+chatGroupIcon.addEventListener("click", handleChatGroupClick);
 
 function handleChatGroupClick(event) {
   const dataItemValue = event.currentTarget.getAttribute("data-item");
-  console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
+  //  console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
   localStorage.setItem("dataItem", dataItemValue);
-  window.location.href = "/api"
+  window.location.href = "/api";
 }
