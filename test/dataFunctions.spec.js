@@ -1,7 +1,11 @@
-import { computeStats, filterData } from "../src/lib/dataFunctions.js";
+import {
+  computeStats,
+  filterData,
+  renderInView,
+} from "../src/lib/dataFunctions.js";
 import data from "../src/data/dataset.js";
 import { sortData } from "../src/lib/dataFunctions.js";
-import { apiView } from './apiView';
+import { apiView } from "../src/viewsComponents/apiView/apiView.js";
 
 describe("filtro por canales", () => {
   it("Debe filtrar por programas de Disney Channel", () => {
@@ -43,7 +47,7 @@ describe("filtro por público dirigido", () => {
 describe("Ordenamiento", () => {
   it("Ordenamiento ascendente", () => {
     const ascendente = sortData(data, "name", "asc");
-    expect(ascendente[0]).toStrictEqual(data[12]); 
+    expect(ascendente[0]).toStrictEqual(data[12]);
   });
   it("Ordenamiento descendente", () => {
     const descendente = sortData(data, "name", "desc");
@@ -64,14 +68,30 @@ describe("Estadistica Global", () => {
   });
 });
 
+describe("Muestra el id de manera correcta", () => {
+  it("Id por programa", () => {
+    const fakeId = "fake-id";
+    document.body.innerHTML = `<div id="${fakeId}"></div>`;
+    renderInView(document.createElement("div"), fakeId);
+    expect(document.getElementById(fakeId)).not.toBeNull();
+  });
+});
 
+/*
+const {apiView} = require("../src/viewsComponents/apiView/apiView.js")
+describe("La vista apiView contiene un footer", () => {
+  it ("Contiene un footer" , () => {
+    document.body.innerHTML = apiView();
+    const footerInApiView = document.querySelector('.footer');
+    expect(footerInApiView).not.toBeNull();
+  })
+}) */
 
-test('apiView renderiza con el componente footer', () => {
-  document.body.innerHTML = '';
-  document.body.appendChild(apiView());
-
-  // Check if the footer element is present
-  const footerElement = document.querySelector('.footer');
-  expect(footerElement).toBeInTheDocument();
-  // expect(footerElement.textContent).toBe('Isis Y Ross 2023');
+describe("la vista apiView contiene un footer", () => {
+  it("apiView renderiza con el componente footer", () => {
+    document.body.innerHTML = "";
+    document.body.appendChild(apiView());
+    const footerElement = document.querySelector(".footer");
+    expect(footerElement).not.toBeNull();
+  });
 });

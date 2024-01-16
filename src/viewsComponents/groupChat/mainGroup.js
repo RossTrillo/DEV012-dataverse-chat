@@ -74,23 +74,19 @@ function getAnswerIA(sender, message) {
         // Agregar la respuesta de la IA al mensaje
         messageIA.innerHTML = `<p><b>${sender}</b></p> ${data.choices[0].message.content}`;
       } else {
-        console.error(
-          "Error al obtener respuesta de la IA",
-          data.error.message
-        );
-        messageIA.innerHTML = `<p><b>${sender}</b></p> Error al obtener respuesta de la IA: ${data.error.message}`;
+        messageIA.innerHTML = `<p><b>${sender}</b></p> Error al obtener respuesta de la IA`;
       }
       // Agregar el mensaje completo al contenedor principal
       mainContainer.appendChild(messageIA);
 
       // Hacer scroll hacia abajo para mostrar el último mensaje
       mainContainer.scrollTop = mainContainer.scrollHeight;
-    })
-
-    .catch((error) => {
-      console.error("Error de red al obtener respuesta de la IA", error);
-      messageIA.innerHTML = `<p><b>${sender}</b></p> Error de red al obtener respuesta de la IA`;
-      mainContainer.appendChild(messageIA);
-      mainContainer.scrollTop = mainContainer.scrollHeight;
     });
+
+  //   .catch((error) => {
+  //   console.error("Error de red al obtener respuesta de la IA", error);
+  // messageIA.innerHTML = `<p><b>${sender}</b></p> Error de red al obtener respuesta de la IA`;
+  // mainContainer.appendChild(messageIA);
+  //  mainContainer.scrollTop = mainContainer.scrollHeight;
+  // });
 }

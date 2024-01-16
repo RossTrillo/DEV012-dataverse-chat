@@ -9,8 +9,6 @@ export const sortData = (data, sortBy, sortOrder) => {
   const asc = sortedData.sort((a, b) => {
     if (a[sortBy] < b[sortBy]) {
       return -1;
-    } else if (a[sortBy] > b[sortBy]) {
-      return 1;
     }
     // }else if (a[sortBy] <= b[sortBy]){
     //   return 0
