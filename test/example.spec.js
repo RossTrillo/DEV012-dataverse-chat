@@ -1,18 +1,23 @@
-import { singleChatResponse } from "../src/lib/Chat.Api";
-import { selectedCard } from "../src/viewsComponents/singleChat/mainSingleChat";
+import { singleChatResponse } from "../src/lib/Chat.Api.js";
+import fetchMock from 'jest-fetch-mock';
+
+fetchMock.enableMocks();
 
 
 const OpenIAResponse = jest.fn();
 
 global.fetch = jest.fn(() => Promise.resolve({ json: OpenIAResponse }));
 
-describe("Endopoint de OpenIA", () => {
+describe("Endpoint de OpenIA", () => {
   it("La API es llamada con los datos adecuados", () => {
     OpenIAResponse.mockResolvedValueOnce({ choices: [{ message: "foo" }] });
-    const messages = [{ role: "user", content: "foo" }];
-    singleChatResponse("1234", selectedCard, messages);
 
-    expect(global.fetch).toBeCalledWith(
+    fetchMock.mockResponseOnce(JSON.stringify({}));
+
+    const messages = [{ role: "user", content: "foo" }];
+    singleChatResponse("1234", "Gravity Falls" , messages);
+
+    expect(fetchMock).toBeCalledWith(
       "https://api.openai.com/v1/chat/completions",
       {
         method: "POST",
@@ -25,7 +30,7 @@ describe("Endopoint de OpenIA", () => {
           messages: [
             {
               role: "system",
-              content: `Tu eres el personaje principal de la caricatura ${selectedCard.name}`,
+              content: `Tu eres el personaje principal de la caricatura Gravity Falls`,
             },
             { role: "user", content: messages },
           ],
@@ -35,7 +40,7 @@ describe("Endopoint de OpenIA", () => {
   });
 });
 
-it("El edpoint responde de manera correcta", () => {
+it("El endpoint responde de manera correcta", () => {
   const response = {
     choices: [
       {
@@ -49,9 +54,10 @@ it("El edpoint responde de manera correcta", () => {
 
   OpenIAResponse.mockResolvedValueOnce(response);
 
-  return singleChatResponse("1234", [{ role: "user", contet: "foo" }]).then(
+
+  return singleChatResponse("1234","Gravity Falls", [{ role: "user", content: "foo" }]).then(
     (resolved) => {
-      expect(resolved).toBe(response);
+      expect(resolved).toEqual(response);
     }
   );
 });

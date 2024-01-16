@@ -4,7 +4,7 @@ import { singleChatResponse } from "../../lib/Chat.Api.js";
 
 //1 Traer la info de la card seleccionada de la session storage
 //2 Convertir toda la cadena de texto de la card seleccionada en un objeto
-export const selectedCard = JSON.parse(sessionStorage.getItem("cartoonSelected"));
+const selectedCard = JSON.parse(sessionStorage.getItem("cartoonSelected"));
 
 //3 Crear la tarjeta con la info del objeto
 const createdCard = createCard(selectedCard);
@@ -52,7 +52,7 @@ function addMessage(sender, message) {
   mainContainer.appendChild(newMessage);
 }
 
-function getAnswerIA(sender, message) {
+function getAnswerIA(message) {
   singleChatResponse(apiKey, selectedCard, message);
   /* const mainContainer = document.querySelector(".singleChat");
   const messageIA = document.createElement("section");

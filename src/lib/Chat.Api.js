@@ -1,9 +1,11 @@
 export const singleChatResponse = (apiKey, selectedCard, message) => {
+
   const mainContainer = document.querySelector(".singleChat");
   const messageIA = document.createElement("section");
   messageIA.setAttribute("class", "messageIa");
 
   const apiUrl = "https://api.openai.com/v1/chat/completions";
+  
 
   const requestBody = {
     model: "gpt-3.5-turbo",
