@@ -52,14 +52,18 @@ function addMessage(sender, message) {
   mainContainer.appendChild(newMessage);
 }
 
-function getAnswerIA(sender, message) {
-  const mainContainer = document.querySelector(".singleChat");
-  const messageIA = document.createElement("section");
-  messageIA.setAttribute("class", "messageIa");
+function getAnswerIA(message) {
   singleChatResponse(apiKey, selectedCard, message)
     .then((response) => {
-      // Agregar la respuesta de la IA al mensaje
-      messageIA.innerHTML = `<p><b>${sender}</b></p> ${response}`;
+      const mainContainer = document.querySelector(".singleChat");
+      const messageIA = document.createElement("section");
+      messageIA.setAttribute("class", "messageIa");
+
+      if (response.success) {
+        messageIA.innerHTML = `<p><b>Personaje:</b></p> ${response.content}`;
+      } else {
+        messageIA.innerHTML = `<p><b>Personaje:</b></p> ${response.error}`;
+      }
 
       // Agregar el mensaje completo al contenedor principal
       mainContainer.appendChild(messageIA);
@@ -68,50 +72,9 @@ function getAnswerIA(sender, message) {
       mainContainer.scrollTop = mainContainer.scrollHeight;
     })
     .catch((error) => {
-      console.error(error);
-      // Manejar el error aquí si es necesario
+      console.error("Error:", error);
     });
-  /* const mainContainer = document.querySelector(".singleChat");
-  const messageIA = document.createElement("section");
-  messageIA.setAttribute("class", "messageIa");
-
-    const apiUrl = "https://api.openai.com/v1/chat/completions";
-
-    const requestBody = {
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: `Tu eres el personaje principal de la caricatura ${selectedCard.name}`,
-        },
-        { role: "user", content: message },
-      ],
-    };
-    return  fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify(requestBody),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-          // Agregar la respuesta de la IA al mensaje
-          messageIA.innerHTML = `<p><b>${sender}</b></p> ${data.choices[0].message.content}`;
-        } else {
-          messageIA.innerHTML = `<p><b>${sender}</b></p> Error al obtener respuesta de la IA`;
-        }
-  
-        // Agregar el mensaje completo al contenedor principal
-        mainContainer.appendChild(messageIA);
-  
-        // Hacer scroll hacia abajo para mostrar el último mensaje
-        mainContainer.scrollTop = mainContainer.scrollHeight;
-      }); */
 }
-
 // .catch((error) => {
 //   console.error("Error de red al obtener respuesta de la IA", error);
 //   messageIA.innerHTML = `<p><b>${sender}</b></p> Error de red al obtener respuesta de la IA`;

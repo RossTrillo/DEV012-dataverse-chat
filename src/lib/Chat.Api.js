@@ -1,4 +1,6 @@
 export const singleChatResponse = (apiKey, selectedCard, message) => {
+
+
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 
   const requestBody = {
@@ -20,18 +22,28 @@ export const singleChatResponse = (apiKey, selectedCard, message) => {
     },
     body: JSON.stringify(requestBody),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      return response.json()})
     .then((data) => {
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-        // Agregar la respuesta de la IA al mensaje
-        return data.choices[0].message.content;
+        return {
+          success: true,
+          content: data.choices[0].message.content,
+        };
       } else {
-        throw new Error(
-          `Error en la respuesta de la IA: ${data.error.message}`
-        );
+        return {
+          success: false,
+          error: "Error al obtener respuesta de la IA",
+        };
       }
     })
+  
     .catch((error) => {
-      throw new Error(`Error de red al obtener respuesta de la IA: ${error}`);
+      console.error("Error de red al obtener respuesta de la IA", error);
+      return {
+        success: false,
+        error: "Error de red al obtener respuesta de la IA",
+      };
+      
     });
 };
