@@ -52,8 +52,25 @@ function addMessage(sender, message) {
   mainContainer.appendChild(newMessage);
 }
 
-function getAnswerIA(message) {
-  singleChatResponse(apiKey, selectedCard, message);
+function getAnswerIA(sender, message) {
+  const mainContainer = document.querySelector(".singleChat");
+  const messageIA = document.createElement("section");
+  messageIA.setAttribute("class", "messageIa");
+  singleChatResponse(apiKey, selectedCard, message)
+    .then((response) => {
+      // Agregar la respuesta de la IA al mensaje
+      messageIA.innerHTML = `<p><b>${sender}</b></p> ${response}`;
+
+      // Agregar el mensaje completo al contenedor principal
+      mainContainer.appendChild(messageIA);
+
+      // Hacer scroll hacia abajo para mostrar el último mensaje
+      mainContainer.scrollTop = mainContainer.scrollHeight;
+    })
+    .catch((error) => {
+      console.error(error);
+      // Manejar el error aquí si es necesario
+    });
   /* const mainContainer = document.querySelector(".singleChat");
   const messageIA = document.createElement("section");
   messageIA.setAttribute("class", "messageIa");
