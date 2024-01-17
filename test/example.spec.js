@@ -1,64 +1,69 @@
 import { singleChatResponse } from "../src/lib/Chat.Api.js";
-import fetchMock from 'jest-fetch-mock';
 
-fetchMock.enableMocks();
-
+const cartoon = "Gravity Falls";
 
 const OpenIAResponse = jest.fn();
 
 global.fetch = jest.fn(() => Promise.resolve({ json: OpenIAResponse }));
 
+// jest.setTimeout(15000);
+
 describe("Endpoint de OpenIA", () => {
   it("La API es llamada con los datos adecuados", () => {
     OpenIAResponse.mockResolvedValueOnce({ choices: [{ message: "foo" }] });
 
-    fetchMock.mockResponseOnce(JSON.stringify({}));
-
     const messages = [{ role: "user", content: "foo" }];
-    singleChatResponse("1234", "Gravity Falls" , messages);
 
-    expect(fetchMock).toBeCalledWith(
-      "https://api.openai.com/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer 1234`,
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [
-            {
-              role: "system",
-              content: `Tu eres el personaje principal de la caricatura Gravity Falls`,
+   
+    return new Promise((resolve) => {
+      singleChatResponse("1234", {name: cartoon}, messages).then(() => {
+        
+        expect(fetch).toBeCalledWith(
+          "https://api.openai.com/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer 1234`,
             },
-            { role: "user", content: messages },
-          ],
-        }),
-      }
-    );
+            body: JSON.stringify({
+              model: "gpt-3.5-turbo",
+              messages: [
+                {
+                  role: "system",
+                  content: `Tu eres el personaje principal de la caricatura ${cartoon}`,
+                },
+                { role: "user", content: messages },
+              ],
+            }),
+          }
+        );
+
+        resolve();
+      });
+    });
+  });
+
+  it("El endpoint responde de manera correcta", () => {
+    const response = {
+      choices: [
+        {
+          message: {
+            role: "assistant",
+            content: "¡Hola!",
+          },
+        },
+      ],
+    };
+
+    OpenIAResponse.mockResolvedValueOnce(response);
+
+    // Without using async/await, handle the Promise using .then()
+    return singleChatResponse("1234", cartoon, [
+      { role: "user", content: "foo" },
+    ]).then((resolved) => {
+      expect(resolved.success).toBe(true);
+      expect(resolved.content).toEqual(response.choices[0].message.content);
+    });
   });
 });
-
-it("El endpoint responde de manera correcta", () => {
-  const response = {
-    choices: [
-      {
-        message: {
-          role: "assistant",
-          content: "¡Hola!",
-        },
-      },
-    ],
-  };
-
-  OpenIAResponse.mockResolvedValueOnce(response);
-
-
-  return singleChatResponse("1234","Gravity Falls", [{ role: "user", content: "foo" }]).then(
-    (resolved) => {
-      expect(resolved).toEqual(response);
-    }
-  );
-});
-
