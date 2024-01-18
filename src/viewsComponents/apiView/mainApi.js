@@ -1,10 +1,12 @@
+import { navigateTo } from "../../router";
+
 const apiKey = localStorage.getItem("apiKey");
 if (apiKey !== null) {
   const dataItemValue = localStorage.getItem("dataItem");
   if (dataItemValue === "group") {
-    window.location.href = "/group";
+    navigateTo("/group");
   } else {
-    window.location.href = "/chat";
+    navigateTo("/chat");
   }
 }
 document.getElementById("button").addEventListener("click", () => {
@@ -12,8 +14,8 @@ document.getElementById("button").addEventListener("click", () => {
   localStorage.setItem("apiKey", apiKey);
   const dataItemValue = localStorage.getItem("dataItem");
   if (dataItemValue === "group") {
-    window.location.href = "/group";
+   navigateTo("/group");
   } else {
-    window.location.href = "/chat";
+    navigateTo("/chat");
   }
 });
