@@ -1,0 +1,165 @@
+.all {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+i {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    position: absolute;
+    left: 89%;
+    margin: 0;
+    top: 0;
+    background-image: url(263115.png);
+}
+ 
+
+
+#home {
+    text-align: center;
+    width: 10%;
+    height: 9%;
+    position: fixed;
+    margin-top: 1%;
+    z-index: 100;
+    left: 86%;
+    top: 0;
+    background-image: url(263115.png);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:none ;
+}
+
+.root {
+    margin-top: 5%;
+    width: 100%;
+    height: 87%;
+    margin-left: 0em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+#triste {
+    background-image: url(patotriste.png);
+    margin-top: 10%;
+    width: 100%;
+    height: 20em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+section {
+        font-size: xx-large;
+        font-family: 'circular';
+        text-align: center;
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+
+p {
+    font-size: xx-large;
+    text-align: center;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 480px) {
+    #home {
+        width: 20%;
+        height: auto;
+        left: 80%;
+    }
+
+    .header {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        background-image: url(fun.png);
+        background-repeat: no-repeat;
+        background-position-x: -1%;
+        border-bottom: 3px solid black;
+        background-size: 340px;
+    }
+
+    #root {
+        margin-top: 17%;
+        font-size: medium;
+    }
+
+    i {
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 10%;
+        height: 100%;
+        background-size: 80%;
+        left: 85%;
+    }
+
+    p {
+        margin-top: 0;
+        font-size: medium;
+    }
+
+}
+
+/* Media Query para tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+    #home {
+        width: 15%;
+        left: 82%;
+    }
+
+    .header {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 10px;
+        background-image: url(fun.png);
+        background-repeat: no-repeat;
+        background-size: 520px;
+    }
+    #root {
+        margin-top: 8%;
+    font-size: large;
+    height: 5em;
+    }
+
+
+
+    i {
+        width: 60px;
+        height: 60px;
+        background-size: cover;
+        position: absolute;
+        margin: 0px;
+        top: 6px;
+        background-image: url(263115.png);
+        left: 89%;
+    }
+}
+
+/* Media Query para pantallas más grandes */
+@media (min-width: 1025px) {
+    #home {
+        width: 10%;
+        left: 86%;
+    }
+
+    #root {
+        margin-top: 5%;
+    }
+
+
+
+}
