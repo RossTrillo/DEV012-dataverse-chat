@@ -1,3 +1,6 @@
+import { updateURLstate } from "../../router.js";
+import { loadRoute } from "../../index.js";
+
 const apiKey = localStorage.getItem("apiKey");
 if (apiKey !== null) {
   const dataItemValue = localStorage.getItem("dataItem");
