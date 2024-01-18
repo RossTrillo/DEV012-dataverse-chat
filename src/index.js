@@ -12,13 +12,10 @@ links.forEach((link) => {
 });
 
 window.addEventListener("popstate", (event) => {
-  // Check if the event state is null, indicating a full page reload
   if (event.state === null) {
-    // Manually typed URL, handle route change
     const currentPath = window.location.pathname;
     navigateTo(currentPath);
   } else {
-    // Back or forward button clicked, handle as usual
     const currentPath = window.location.pathname;
     navigateTo(currentPath);
   }

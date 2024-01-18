@@ -9,6 +9,9 @@ if (apiKey !== null) {
     navigateTo("/chat");
   }
 }
+
+
+
 document.getElementById("button").addEventListener("click", () => {
   const apiKey = document.getElementById("password").value;
   localStorage.setItem("apiKey", apiKey);

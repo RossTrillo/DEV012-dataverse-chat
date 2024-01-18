@@ -35,13 +35,11 @@ console.log(apiRoot);
    apiKeyView.appendChild(footer);
 }  */
 
-import { footer } from "../../staticsComponents/footer.js";
+import {footer} from "../../staticsComponents/footer.js";
 export const apiView = () => {
 
   const link = document.getElementById("pageStyles");
   link.href = "./viewsComponents/apiView/stylesAPI.css";
-
-  
 
   const container = document.createElement("div");
   container.setAttribute("id", "apiView");

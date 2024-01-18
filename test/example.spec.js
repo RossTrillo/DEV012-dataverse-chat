@@ -1,7 +1,6 @@
 import { singleChatResponse } from "../src/lib/Chat.Api.js";
 
 const cartoon = "Gravity Falls";
-
 const OpenIAResponse = jest.fn();
 
 global.fetch = jest.fn(() => Promise.resolve({ json: OpenIAResponse }));
