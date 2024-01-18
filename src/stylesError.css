@@ -41,7 +41,7 @@ i {
 }
 
 #triste {
-    background-image: url(patotriste.png);
+    background-image: url(./assets/images/patotriste.png);
     margin-top: 10%;
     width: 100%;
     height: 20em;
