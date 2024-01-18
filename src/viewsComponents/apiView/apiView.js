@@ -75,7 +75,7 @@ export const apiView = () => {
   document.body.appendChild(container);
   document.body.appendChild(footer);
 
-  const script = document.getElementById("pageScript");
+  const script = document.createElement("script");
   script.src = "./viewsComponents/apiView/mainApi.js";
   script.type= "module"
 
