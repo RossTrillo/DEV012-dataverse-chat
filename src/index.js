@@ -1,12 +1,5 @@
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
-import { render, searchRoute, updateURLstate } from "./router.js";
-
-
-function loadRoute(route) {
-  const template = searchRoute(route);
-  render(template);
-  updateURLstate(route);
-}
+import { navigateTo } from "./router.js";
 
 const links = document.querySelectorAll("a.redirection");
 
@@ -14,7 +7,7 @@ links.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
     const linkRoute = event.target.href.replace(window.location.origin, "");
-    loadRoute(linkRoute);
+    navigateTo(linkRoute);
   });
 });
 
@@ -23,22 +16,15 @@ window.addEventListener("popstate", (event) => {
   if (event.state === null) {
     // Manually typed URL, handle route change
     const currentPath = window.location.pathname;
-    loadRoute(currentPath);
+    navigateTo(currentPath);
   } else {
     // Back or forward button clicked, handle as usual
     const currentPath = window.location.pathname;
-    loadRoute(currentPath);
+    navigateTo(currentPath);
   }
 });
 
 window.addEventListener("load", () => {
   const currentPath = window.location.pathname;
-  loadRoute(currentPath);
+  navigateTo(currentPath);
 });
-
-/*
-TODO:
-1.- Definir rutas en router.
-2.- Pasar "root element" a router.
-3.- Invocar el router para renderizar la vista correcta.
-*/

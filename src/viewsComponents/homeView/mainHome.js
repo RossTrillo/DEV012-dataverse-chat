@@ -2,6 +2,7 @@ import { filterData, sortData } from "../../lib/dataFunctions.js";
 import data from "../../data/dataset.js";
 import { createCards } from "./createCards.js";
 import { renderInView } from "../../lib/dataFunctions.js";
+import { navigateTo } from "../../router.js";
 
 // Eventos del DOM para el home View
 
@@ -38,7 +39,7 @@ document.querySelector("#containerCards").addEventListener("click", (e) => {
     //console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
     localStorage.setItem("dataItem", dataItemValue);
 
-    window.location.href = "/api";
+    navigateTo("/api");
   }
 });
 
@@ -137,5 +138,5 @@ function handleChatGroupClick(event) {
   const dataItemValue = event.currentTarget.getAttribute("data-item");
   //  console.log("Clicked on chatGroup. Data-item value:", dataItemValue);
   localStorage.setItem("dataItem", dataItemValue);
-  window.location.href = "/api";
+  navigateTo("/api");
 }
