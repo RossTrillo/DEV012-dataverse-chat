@@ -1,10 +1,7 @@
 import { footer } from "../../staticsComponents/footer.js";
 export const groupChatView = () => {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
+  const link = document.getElementById("pageStyles")
   link.href = "./viewsComponents/groupChat/stylesGroup.css";
-
-  document.head.appendChild(link);
 
   const container = document.createElement("div");
   container.setAttribute("id", "chatView");

@@ -15,12 +15,10 @@ export const errorView = () => {
   meta.name = "viewport";
   meta.content = "width=device-width, initial-scale=1.0" */
 
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
+  const link = document.getElementById("pageStyles");
   link.href = "./viewsComponents/errorView/stylesError.css";
 
-  /* document.head.appendChild(meta); */
-  document.head.appendChild(link);
+  
 
   //Seleccionamos elemento padre que contendrá todos los nodos
   const errorPageView = document.querySelector(".all");

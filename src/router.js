@@ -34,7 +34,6 @@ function updateURLstate(route) {
 }
 
 function navigateTo(route) {
-  console.log("🚀 ~ navigateTo ~ navigateTo:", navigateTo)
   const template = searchRoute(route);
   updateURLstate(route);
   render(template);
