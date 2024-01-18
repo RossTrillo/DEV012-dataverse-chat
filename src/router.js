@@ -28,8 +28,9 @@ function searchRoute(route) {
   }
 }
 
-function updateURLstate(route) {
-  const currentUrl = window.location.origin + route;
+
+function updateURLstate(routes) {
+  const currentUrl = window.location.origin + routes;
   history.pushState({}, "", currentUrl);
 }
 export { render, searchRoute, updateURLstate };

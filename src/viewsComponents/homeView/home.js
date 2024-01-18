@@ -90,7 +90,6 @@ const home = () => {
     `;
 
   const cards = createCards(data);
-
   const containerCards = document.createElement("section");
   containerCards.setAttribute("id", "containerCards");
   containerCards.appendChild(cards);

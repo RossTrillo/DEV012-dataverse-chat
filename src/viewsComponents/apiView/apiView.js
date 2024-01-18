@@ -35,9 +35,8 @@ console.log(apiRoot);
    apiKeyView.appendChild(footer);
 }  */
 
-import { footer } from "../../staticsComponents/footer.js";
+import {footer} from "../../staticsComponents/footer.js";
 export const apiView = () => {
-
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = "./viewsComponents/apiView/stylesAPI.css";
