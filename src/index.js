@@ -19,14 +19,14 @@ links.forEach((link) => {
   });
 });
 
-window.addEventListener("popstate", () => {
-  // if (event.state === null) {
-  const currentPath = window.location.pathname;
-  loadRoute(currentPath);
-  // } else {
-  //  const currentPath = window.location.pathname;
-  //loadRoute(currentPath);
-  // }
+window.addEventListener("popstate", (event) => {
+  if (event.state === null) {
+    const currentPath = window.location.pathname;
+    loadRoute(currentPath);
+  } else {
+    const currentPath = window.location.pathname;
+    loadRoute(currentPath);
+  }
 });
 
 window.addEventListener("load", () => {
