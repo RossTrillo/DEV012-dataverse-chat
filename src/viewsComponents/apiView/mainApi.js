@@ -2,9 +2,11 @@ const apiKey = localStorage.getItem("apiKey");
 if (apiKey !== null) {
   const dataItemValue = localStorage.getItem("dataItem");
   if (dataItemValue === "group") {
-    window.location.href = "/group";
+    updateURLstate("/group");
+    loadRoute("/group");
   } else {
-    window.location.href = "/chat";
+     updateURLstate("/chat");
+    loadRoute("/chat");
   }
 }
 
@@ -15,8 +17,10 @@ document.getElementById("button").addEventListener("click", () => {
   localStorage.setItem("apiKey", apiKey);
   const dataItemValue = localStorage.getItem("dataItem");
   if (dataItemValue === "group") {
-    window.location.href = "/group";
+    updateURLstate("/group");
+    loadRoute("/group");
   } else {
-    window.location.href = "/chat";
+     updateURLstate("/chat");
+    loadRoute("/chat");
   }
 });
