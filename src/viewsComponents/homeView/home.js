@@ -4,10 +4,8 @@ import { createCards } from "./createCards.js";
 import { footer } from "../../staticsComponents/footer.js";
 
 const home = () => {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
+  const link = document.getElementById("pageStyles");
   link.href = "./viewsComponents/homeView/stylesHome.css";
-  document.head.appendChild(link);
 
   const homeHeader = document.createElement("header");
   homeHeader.setAttribute("class", "header");
@@ -102,6 +100,7 @@ const home = () => {
   container.appendChild(footer);
 
   const script = document.createElement("script");
+  
   script.src = "./viewsComponents/homeView/mainHome.js";
   script.type = "module";
   document.body.appendChild(script);

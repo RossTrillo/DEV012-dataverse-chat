@@ -1,6 +1,7 @@
 import { createCard } from "../homeView/createCards.js";
 import { renderInView } from "../../lib/dataFunctions.js";
 import { singleChatResponse } from "../../lib/Chat.Api.js";
+import { navigateTo } from "../../router.js";
 
 //1 Traer la info de la card seleccionada de la session storage
 //2 Convertir toda la cadena de texto de la card seleccionada en un objeto
@@ -16,7 +17,7 @@ const apiKey = localStorage.getItem("apiKey");
 
 if (!apiKey) {
   // Solo redirigir si no hay una API key
-  window.location.href = "/api";
+  navigateTo("/api");
 } else {
   // Manejar la interacción por mensajes
   const interactionWithIa = document.getElementById("button");

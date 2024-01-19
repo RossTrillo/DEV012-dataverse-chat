@@ -37,11 +37,9 @@ console.log(apiRoot);
 
 import {footer} from "../../staticsComponents/footer.js";
 export const apiView = () => {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = "./viewsComponents/apiView/stylesAPI.css";
 
-  document.head.appendChild(link);
+  const link = document.getElementById("pageStyles");
+  link.href = "./viewsComponents/apiView/stylesAPI.css";
 
   const container = document.createElement("div");
   container.setAttribute("id", "apiView");
@@ -77,8 +75,11 @@ export const apiView = () => {
 
   const script = document.createElement("script");
   script.src = "./viewsComponents/apiView/mainApi.js";
-  script.type = "module";
-  document.body.appendChild(script);
+  script.type= "module"
+
+  document.body.appendChild(script)
+  
+ 
 
   return container;
   //    document.body.insertAdjacentElement('beforeend', footer);

@@ -1,15 +1,12 @@
-import { updateURLstate } from "../../router.js";
-import { loadRoute } from "../../index.js";
+import { navigateTo } from "../../router.js";
 
 const apiKey = localStorage.getItem("apiKey");
 if (apiKey !== null) {
   const dataItemValue = localStorage.getItem("dataItem");
   if (dataItemValue === "group") {
-    updateURLstate("/group");
-    loadRoute("/group");
+    navigateTo("/group");
   } else {
-     updateURLstate("/chat");
-    loadRoute("/chat");
+    navigateTo("/chat");
   }
 }
 
@@ -18,12 +15,11 @@ if (apiKey !== null) {
 document.getElementById("button").addEventListener("click", () => {
   const apiKey = document.getElementById("password").value;
   localStorage.setItem("apiKey", apiKey);
+
   const dataItemValue = localStorage.getItem("dataItem");
   if (dataItemValue === "group") {
-    updateURLstate("/group");
-    loadRoute("/group");
+   navigateTo("/group");
   } else {
-     updateURLstate("/chat");
-    loadRoute("/chat");
+    navigateTo("/chat");
   }
 });

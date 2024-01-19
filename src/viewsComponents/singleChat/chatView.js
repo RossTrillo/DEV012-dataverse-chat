@@ -2,11 +2,10 @@ import { footer } from "../../staticsComponents/footer.js";
 // import { createCard } from "./mainSingleChat.js";
 
 export const singleChatView = () => {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
+  const link = document.getElementById("pageStyles");
   link.href = "./viewsComponents/singleChat/stylesChatView.css";
 
-  document.head.appendChild(link);
+  
 
   const container = document.createElement("div");
   container.setAttribute("id", "chatView");

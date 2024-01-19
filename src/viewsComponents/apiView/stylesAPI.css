@@ -3,20 +3,7 @@ body {
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
- .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 85px;
-    padding: 10px;
-    background-image: url(fun.png);
-    background-repeat: no-repeat;
-    align-items: center;
-    background-position-x: 50%;
-    border-bottom: 3px solid black;
-    background-size: 650px;
-}
+ 
 
 i {
     width: 90px;

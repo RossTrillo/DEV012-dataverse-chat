@@ -1,9 +1,10 @@
 import data from "../../data/dataset.js";
+import { navigateTo } from "../../router.js";
 const apiKey = localStorage.getItem("apiKey");
 
 if (!apiKey) {
   // Solo redirigir si no hay una API key
-  window.location.href = "/api";
+  navigateTo("/api");
 } else {
   // Manejar la interacción por mensajes
   const interactionWithIa = document.getElementById("button");
